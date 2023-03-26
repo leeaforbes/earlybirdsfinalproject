@@ -15,7 +15,7 @@ const Sidebar = () => {
 	return (
 		<div className='sidebar-modal'>
 
-			<div id='directorytitle'>Directory</div>
+			<div className='title'>Directory</div>
 
 			<input
 				id='searchbar'

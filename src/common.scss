@@ -1,0 +1,9 @@
+.title {
+	@extend .white;
+	font-weight: bold;
+	font-size: x-large;
+}
+
+.white {
+  color: white;
+}

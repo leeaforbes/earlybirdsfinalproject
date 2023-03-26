@@ -1,13 +1,25 @@
+@import "~bootstrap/scss/bootstrap";
+
 .sidebar-modal {
-    background-color: red;
-    // display: none; /* Hidden by default */
-    // display: block; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    right: 0;
-    top: 0;
-    width: 20%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    border: 1px solid black;
+  background-color: red;
+  // display: none; /* Hidden by default */
+  // display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  right: 0;
+  top: 0;
+  width: 20%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  border: 1px solid black;
+}
+
+#searchbar {
+  margin: 5%;
+  width: 90%;
+}
+
+#directorytitle {
+  font-weight: bold;
+  font-size: x-large;
 }

@@ -2,9 +2,9 @@ import { useState } from 'react';
 import './App.scss';
 import Sidebar from './Sidebar';
 
-// https://react-bootstrap.github.io/getting-started/introduction/
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/scss/bootstrap.scss';
+// // https://react-bootstrap.github.io/getting-started/introduction/
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/scss/bootstrap.scss';
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
       </div>
 
       <button
-        onClick={() => loadSidebar(setShowSidebar)}
+        onClick={() => loadSidebar(showSidebar, setShowSidebar)}
       >
         sidebar
       </button>
@@ -27,9 +27,8 @@ function App() {
   );
 }
 
-function loadSidebar(setShowSidebar) {
-  console.log("load sidebar")
-  setShowSidebar(true)
+function loadSidebar(showSidebar, setShowSidebar) {
+  setShowSidebar(!showSidebar)
 }
 
 export default App;

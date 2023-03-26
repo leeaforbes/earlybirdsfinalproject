@@ -1,0 +1,13 @@
+.sidebar-modal {
+    background-color: red;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    right: 0;
+    top: 0;
+    width: 20%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    border: 1px solid black;
+    border-radius: 25px;
+}

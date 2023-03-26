@@ -12,9 +12,9 @@ function App() {
 
   return (
     <div>
-      <div className="border bootstrap-center">
+      {/* <div className="border bootstrap-center">
         Early Birds Final Project
-      </div>
+      </div> */}
 
       <button
         onClick={() => loadSidebar(showSidebar, setShowSidebar)}

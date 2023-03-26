@@ -20,6 +20,8 @@ const Sidebar = () => {
 			>
 			</input>
 
+			
+
 			<CreateList listName={"Sets"} list={setList} onClickFunction={() => {console.log("s")}} />
 			<br/>
 			<CreateList listName={"Mixes"} list={mixList} onClickFunction={() => {console.log("m")}} />
@@ -30,6 +32,13 @@ const Sidebar = () => {
 };
 
 function CreateList({listName, list, onClickFunction}) {
+
+	const [showList, setShowList] = useState(true)
+
+	function collapseList() {
+
+	}
+
 	var outputList = []
   list.forEach(elementName => {
     outputList.push(
@@ -44,10 +53,28 @@ function CreateList({listName, list, onClickFunction}) {
 
   return (
     <>
-			<div onClick={onClickFunction}>
-				{listName}
-			</div>
-      {outputList}
+			{ showList ? 
+
+				<div>
+					<div
+						className='sectiontitle'
+						onClick={() => setShowList(false)}
+					>
+						{"- " + listName}
+					</div>
+
+					<div className='white'>
+						{outputList}
+					</div>
+				</div>
+
+				: <div
+						className='sectiontitle'
+						onClick={() => setShowList(true)}
+					>
+						{"+ " + listName}
+					</div>
+			}
     </>
   );
 }

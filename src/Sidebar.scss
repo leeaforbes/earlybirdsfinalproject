@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 .sidebar-modal {
-  background-color: red;
+  background-color: #6697C5;
   // display: none; /* Hidden by default */
   // display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -20,6 +20,17 @@
 }
 
 #directorytitle {
+  @extend .white;
   font-weight: bold;
   font-size: x-large;
+}
+
+.sectiontitle {
+  @extend .white;
+  font-weight: bold;
+  font-size: large;
+}
+
+.white {
+  color: white;
 }

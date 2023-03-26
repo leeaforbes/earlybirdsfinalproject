@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.scss';
 import Sidebar from './Sidebar';
 
@@ -6,6 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/scss/bootstrap.scss';
 
 function App() {
+
+  const [showSidebar, setShowSidebar] = useState(false)
+
   return (
     <div>
       <div className="border bootstrap-center">
@@ -13,18 +17,19 @@ function App() {
       </div>
 
       <button
-        onClick={() => loadSidebar()}
+        onClick={() => loadSidebar(setShowSidebar)}
       >
         sidebar
       </button>
 
-      <Sidebar></Sidebar>
+      { showSidebar ? <Sidebar /> : null}
     </div>
   );
 }
 
-function loadSidebar() {
+function loadSidebar(setShowSidebar) {
   console.log("load sidebar")
+  setShowSidebar(true)
 }
 
 export default App;

@@ -1,11 +1,15 @@
-
+import "./Sidebar.scss"
 
 const Sidebar = () => {
 	return (
-		<div>
-		
+		<div
+			className='sidebar-modal'
+		>
+			TEST
 		</div>
 	)
 };
+
+
 
 export default Sidebar;

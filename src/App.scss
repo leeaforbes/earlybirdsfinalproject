@@ -1,8 +1,2 @@
 @import "~bootstrap/scss/bootstrap";
-
-// this combines all three classes into one, GGEZ
-.bootstrap-center {
-  @extend .d-flex;
-  @extend .align-items-center;
-  @extend .justify-content-center;
-}
+@import "./common.scss"

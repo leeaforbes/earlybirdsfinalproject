@@ -11,4 +11,5 @@
   height: 40vh; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   border: 1px solid black;
+  @extend .px-2;
 }

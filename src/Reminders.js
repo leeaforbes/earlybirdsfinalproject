@@ -12,10 +12,8 @@ const Reminders = () => {
 	const titleRef = useRef(null)
 	const timeRef = useRef(null)
 
-	console.log(reminderList)
-
 	return (
-		<div className='reminders-modal px-2'>
+		<div className='reminders-modal'>
 			<div className="container">
 				<div className="row">
 					<div className="col-11 title">Reminders</div>
@@ -96,12 +94,12 @@ function ReminderList({list}) {
 					className='row'
 					key={reminder.title}
 				>
-					<div className='col-8 border'>{reminder.title}</div>
+					<div className='col-8 border white'>{reminder.title}</div>
 
 					{/* trashcan logo inside this div */}
-					<div className='col-1 border'>T</div>
+					<div className='col-1 border white'>T</div>
 
-					<div className='col-3 border'>{reminder.time}</div>
+					<div className='col-3 border white'>{reminder.time}</div>
 			</div>
 		)
   });

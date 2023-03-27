@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './Reminders.scss'
 
 const Reminders = () => {
@@ -8,27 +8,94 @@ const Reminders = () => {
 		{title: "Create Mix 3 in Trumpet Set", time: "1:30am 04/01"}
 	])
 
+	const [addEnabled, setAddEnabled] = useState(true)
+	const titleRef = useRef(null)
+	const timeRef = useRef(null)
+
+	console.log(reminderList)
+
 	return (
 		<div className='reminders-modal px-2'>
-			<div class="container">
-				<div class="row">
+			<div className="container">
+				<div className="row">
 					<div className="col-11 title">Reminders</div>
 
 					{/* this should probably be a picture */}
-					<div className="col-1 title justify-content-right">+</div>
+					<div
+						className="col-1 title justify-content-right"
+						onClick={() => {
+							if(addEnabled){
+								setAddEnabled(false)
+							}
+						}}
+					>
+						+
+					</div>
 				</div>
 
 				<ReminderList list={reminderList} />
+
+				<br/>
+
+				{/* i tried to put this in its own component but
+						none of the functions in onclick worked */}
+				{ !addEnabled ? 				
+					<div
+						className='row'
+						key={"new reminder"}
+					>
+						<div className='col-12'>
+							<input
+								ref={titleRef}
+								type='text'
+								placeholder='Title'
+								></input>
+						</div>
+
+						<div className='col-12'>
+							<input
+								ref={timeRef}
+								type='text'
+								placeholder='Time'
+								></input>
+						</div>
+
+						<div className='col-12'>
+							<button
+								onClick={() => {
+									setAddEnabled(true)
+									setReminderList([...reminderList, {title: titleRef.current.value, time: timeRef.current.value}])
+								}}
+								>
+									Add
+							</button>
+							<button
+								onClick={() => {
+									setAddEnabled(true)
+								}}
+								>
+									Cancel
+							</button>
+						</div>
+					</div>
+					: null
+				}
 			</div>
 		</div>
 	)
 }
 
 function ReminderList({list}) {
+
+	// SORT REMINDERS HERE??
+
 	var outputList = []
   list.forEach(reminder => {
 			outputList.push(
-				<div className='row'>
+				<div
+					className='row'
+					key={reminder.title}
+				>
 					<div className='col-8 border'>{reminder.title}</div>
 
 					{/* trashcan logo inside this div */}

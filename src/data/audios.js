@@ -12,22 +12,22 @@ const audios = [
       title: "Song B",
       artist: "Artist B",
       genres: ["Hip-Hop", "R&B"],
-      length: "4:15",
+      length: "2:45",
       bpm: 95
     },
     {
       id: 3,
       title: "Song C",
       artist: "Artist C",
-      genres: ["Hip-Hop", "R&B"],
-      length: "4:15",
-      bpm: 95
+      genres: ["Punk", "Metal"],
+      length: "3:10",
+      bpm: 120
     },
     {
       id: 4,
       title: "Song D",
       artist: "Artist D",
-      genres: ["Hip-Hop", "R&B"],
+      genres: ["Experimental", "Electronic"],
       length: "4:15",
       bpm: 95
     }

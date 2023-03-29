@@ -3,8 +3,10 @@
 
   .main-content {
     height: calc(100% - 50px); // subtract the height of the header
+    display: flex;
 
     .grid {
+      flex: 1;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
@@ -16,22 +18,30 @@
     .left-box {
       grid-column: 1;
       grid-row: 1 / span 2;
-      background-color: #ddd;
+      background-color: rgba(0, 0, 0, 0.5);
       border-radius: 10px;
       padding: 0px;
 
       h2 {
         margin-top: 0;
         text-align: center;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding-bottom: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
       }
     }
 
     .right-box-top {
       grid-column: 2;
       grid-row: 1;
-      background-color: #ddd;
+      background-color: rgba(0, 0, 0, 0.5);
       border-radius: 10px;
-      padding: 10px;
+      padding: 0px;
+      display: flex;
+  flex-direction: column;
+  flex: 1;
 
       h2 {
         margin-top: 0;
@@ -42,9 +52,12 @@
     .right-box-bottom {
       grid-column: 2;
       grid-row: 2;
-      background-color: #ddd;
+      background-color: rgba(0, 0, 0, 0.5);
       border-radius: 10px;
-      padding: 10px;
+      padding: 0px;
+      display: flex;
+  flex-direction: column;
+  flex: 1;
 
       h2 {
         margin-top: 0;
@@ -52,4 +65,19 @@
       }
     }
   }
+}
+
+.content {
+  display: flex;
+  flex: 1;
+}
+
+h2 {
+  margin-top: 0;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-bottom: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }

@@ -1,7 +1,7 @@
 html, body {
   margin: 0;
   height: 100%;
-  background: linear-gradient(to bottom, #19547B, #316f98,  #FFA500);
+  background: linear-gradient(to bottom, rgb(19, 69, 102), rgb(71, 125, 160),  rgba(250, 223, 178, 0.5), rgba(255, 169, 35, 0.4));
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

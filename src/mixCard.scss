@@ -1,0 +1,45 @@
+.mix-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  
+    .mix-card__name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  
+    .mix-card__dropdown {
+      width: 100%;
+      margin-bottom: 5px;
+      position: relative;
+  
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        border-style: solid;
+        border-width: 6px 6px 0 6px;
+        border-color: #666 transparent transparent transparent;
+      }
+  
+      select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        background-color: #f5f5f5;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+      }
+    }
+  }
+  

@@ -1,0 +1,32 @@
+.setcard {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    margin-bottom: 16px;
+  
+    &__image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 16px;
+    }
+  
+    &__title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+  
+    &__date,
+    &__tags {
+      font-size: 14px;
+      color: #6c757d;
+      margin-bottom: 4px;
+    }
+  
+    &__tags {
+      margin-top: 8px;
+    }
+  }
+  

@@ -7,11 +7,16 @@ import './AudioFileCardBox.scss';
 const AudioFileCardBox = ({ audios }) => {
   return (
     <div className="audio-file-card-box">
-      {audios.map(audio => (
-            <div className='container-fluid'>
-                  <AudioFileCard audioFile={audio} />
-            </div>
+      <div className='container-fluid'>
+      {audios.map(audio => (   
+                  <AudioFileCard audioFile={audio} /> 
       ))}
+      <div className='row'>
+        <div className='col'>
+          <div className='add'> + </div>
+        </div>
+      </div>
+      </div>
     </div>
   );
 };

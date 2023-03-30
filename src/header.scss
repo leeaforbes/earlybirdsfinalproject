@@ -1,28 +1,26 @@
 .header {
-  display: flex;
-  justify-content: space-between;
+  margin-bottom: 10px;
   align-items: center;
   height: 50px;
-  padding: 0 20px;
+  padding: 5px;
   background-color: #19547B;
   color: #fff;
   
   h1 {
     font-size: 2rem;
-    margin: 0;
+    vertical-align: bottom;
     text-align: center;
-    flex-grow: 1;
+
   }
   
-  .header-icons {
-    display: flex;
-    align-items: left;
+
     
     svg {
-      width: 45px;
-      height: 45px;
       margin-left: 10px;
       stroke: #ffffff;
     }
-  }
+}
+
+.header-container{
+  height: 50px;
 }

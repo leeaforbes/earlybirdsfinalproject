@@ -3,6 +3,7 @@ import './App.scss';
 import Sidebar from './Sidebar';
 import Reminders from './Reminders'
 import ReminderAlert from './ReminderAlert'
+import AddAudio from './AddAudio'
 
 // // https://react-bootstrap.github.io/getting-started/introduction/
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,9 +14,14 @@ function App() {
   const [showSidebar, setShowSidebar] = useState(false)
   const [showReminders, setShowReminders] = useState(false)
   const [showReminderAlert, setShowReminderAlert] = useState(false)
+  const [showAddAudio, setShowAddAudio] = useState(false)
 
   function closeReminderAlert(){
     setShowReminderAlert(false)
+  }
+
+  function closeAddAudio(){
+    setShowAddAudio(false)
   }
 
   return (
@@ -42,12 +48,19 @@ function App() {
           >
           sidebar
         </button>
+        
+        <button
+          onClick={() => loadAddAudio(showAddAudio, setShowAddAudio)}
+          >
+          add audio
+        </button>
 
       </div>
 
       { showSidebar ? <Sidebar /> : null}
       { showReminders ? <Reminders /> : null}
       { showReminderAlert ? <ReminderAlert time={"7:00pm 02/25"} title={"Perform Bumpin Set"} closeReminderAlert={closeReminderAlert}/> : null}
+      { showAddAudio ? <AddAudio closeAddAudio={closeAddAudio} /> : null}
     </div>
   );
 }
@@ -62,6 +75,9 @@ function loadReminders(showReminders, setShowReminders) {
 
 function loadReminderAlert(showReminderAlert, setShowReminderAlert) {
   setShowReminderAlert(!showReminderAlert)
+}
+function loadAddAudio(showAddAudio, setShowAddAudio) {
+  setShowAddAudio(!showAddAudio)
 }
 
 export default App;

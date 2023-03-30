@@ -40,7 +40,7 @@ function CreateList({listName, list, searchTerm}) {
 	const [showList, setShowList] = useState(true)
 
 	var outputList = []
-  list.forEach(elementName => {
+	list.forEach(elementName => {
 		if(elementName.toLowerCase().startsWith(searchTerm)){
 			outputList.push(
 				<div

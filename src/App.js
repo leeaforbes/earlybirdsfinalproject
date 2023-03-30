@@ -4,6 +4,7 @@ import Sidebar from './Sidebar';
 import Reminders from './Reminders'
 import ReminderAlert from './ReminderAlert'
 import AddAudio from './AddAudio'
+import AddMix from './AddMix'
 
 // // https://react-bootstrap.github.io/getting-started/introduction/
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,6 +16,7 @@ function App() {
   const [showReminders, setShowReminders] = useState(false)
   const [showReminderAlert, setShowReminderAlert] = useState(false)
   const [showAddAudio, setShowAddAudio] = useState(false)
+  const [showAddMix, setShowAddMix] = useState(false)
 
   function closeReminderAlert(){
     setShowReminderAlert(false)
@@ -22,6 +24,10 @@ function App() {
 
   function closeAddAudio(){
     setShowAddAudio(false)
+  }
+
+  function closeAddMix(){
+    setShowAddMix(false)
   }
 
   return (
@@ -54,6 +60,12 @@ function App() {
           >
           add audio
         </button>
+        
+        <button
+          onClick={() => loadAddMix(showAddMix, setShowAddMix)}
+          >
+          add mix
+        </button>
 
       </div>
 
@@ -61,6 +73,7 @@ function App() {
       { showReminders ? <Reminders /> : null}
       { showReminderAlert ? <ReminderAlert time={"7:00pm 02/25"} title={"Perform Bumpin Set"} closeReminderAlert={closeReminderAlert}/> : null}
       { showAddAudio ? <AddAudio closeAddAudio={closeAddAudio} /> : null}
+      { showAddMix ? <AddMix closeAddMix={closeAddMix} /> : null}
     </div>
   );
 }
@@ -76,8 +89,13 @@ function loadReminders(showReminders, setShowReminders) {
 function loadReminderAlert(showReminderAlert, setShowReminderAlert) {
   setShowReminderAlert(!showReminderAlert)
 }
+
 function loadAddAudio(showAddAudio, setShowAddAudio) {
   setShowAddAudio(!showAddAudio)
+}
+
+function loadAddMix(showAddMix, setShowAddMix) {
+  setShowAddMix(!showAddMix)
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import {useRef} from 'react'
+import { useRef } from 'react'
 import './AddAudio.scss'
 
 function AddAudio({closeAddAudio}) {
@@ -32,7 +32,6 @@ function AddAudio({closeAddAudio}) {
 				<br/>
 
 				<div className='row'>
-					{/* intentionally left empty to take up space */}
 					<div className='col-2 label'>Link</div>
 					<div className='col-9'>
 						<input>

@@ -8,11 +8,9 @@ const AudioFileCardBox = ({ audios }) => {
   return (
     <div className="audio-file-card-box">
       {audios.map(audio => (
-        <div key={audio.id} className="row">
-          <div classname="col">
-            <AudioFileCard audioFile={audio} />
-          </div>
-        </div>
+            <div className='container-fluid'>
+                  <AudioFileCard audioFile={audio} />
+            </div>
       ))}
     </div>
   );

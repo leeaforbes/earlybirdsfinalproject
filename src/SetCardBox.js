@@ -4,14 +4,15 @@ import './SetCardBox.scss';
 
 const SetCardBox = ({ sets }) => {
   return (
-    <div className="set-card-box">
+    <div className="container-fluid set-card-box">
       {sets.map(set => (
         <div className="row">
-          <div classname="col">
+          <div className="col">
             <SetCard set={set} />
           </div>
         </div>
       ))}
+      <div className='add'> + </div>
     </div>
   );
 };

@@ -1,8 +1,13 @@
+import image1 from "./images/Dans_Bday_Image.jpg";
+import image2 from "./images/baby.png";
+import image3 from "./images/wreath.png";
+import image4 from "./images/summer.png";
+
 const sets = [
     {
       id: 1,
       title: "Summer Vibes",
-      image: "https://example.com/summer.jpg",
+      image: image4,
       date: "August 2022",
       tags: ["house", "techno", "disco"],
       mixes: [1, 2, 3],
@@ -10,23 +15,23 @@ const sets = [
     {
       id: 2,
       title: "Winter Chill",
-      image: "https://example.com/winter.jpg",
+      image: image3,
       date: "December 2022",
       tags: ["downtempo", "ambient"],
       mixes: [4, 5],
     },
     {
-      id: 2,
+      id: 3,
       title: "Dan's Bday",
-      image: "https://example.com/winter.jpg",
+      image: image1,
       date: "December 2022",
       tags: ["downtempo", "ambient"],
       mixes: [4, 5],
     },
     {
-      id: 2,
+      id: 4,
       title: "Claudia's Baby Shower",
-      image: "https://example.com/winter.jpg",
+      image: image2,
       date: "December 2022",
       tags: ["downtempo", "ambient"],
       mixes: [4, 5],

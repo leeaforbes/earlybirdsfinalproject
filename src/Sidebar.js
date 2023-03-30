@@ -17,6 +17,7 @@ const Sidebar = () => {
 
 			<div className='title'>Directory</div>
 
+
 			<input
 				id='searchbar'
 				ref={searchFieldRef}

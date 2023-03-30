@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "./common.scss";
 
-.addmix-modal {
+.addset-modal {
 	left: 35vw;
 	top: 20vh;
 	width: 30vw; /* Full width */
@@ -15,12 +15,23 @@
 	@extend .py-2;
 }
 
+.set-image {
+	width: 10vw; /* Full width */
+	height: 10vw; /* Full height */
+	background-color: lightgray;
+	border: 1px solid white;
+}
+
+.set-field {
+	width: 100%;
+}
+
 .createbutton {
 	@extend .d-flex;
 	@extend .flex-row-reverse;
 }
 
-#searchbar {
+#mixsearch {
 	margin: 5%;
 	width: 90%;
 }

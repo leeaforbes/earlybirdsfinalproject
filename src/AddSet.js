@@ -1,7 +1,10 @@
 import { useRef, useState } from 'react';
-import './AddMix.scss'
+import './AddSet.scss'
 
 function AddSet({closeAddSet}) {
+
+	const setNameFieldRef = useRef(null)
+	const tagsFieldRef = useRef(null)
 
 	const [addedMixList, setAddedMixList] = useState([])
 	const [mixList] = useState(["Rhiannon x FEELWITCHU", "Fever - Peggy Lee House Remix", "Krusty Crab Pizza x Romanticist", "god i love edm", "red hot bars", "soul-ripping riffs"])
@@ -21,9 +24,22 @@ function AddSet({closeAddSet}) {
 		setSearchTerm(searchFieldRef.current.value)
 	}
 
+	/* https://stackoverflow.com/questions/37457128/react-open-file-browser-on-click-a-div */
+	/* https://developer.mozilla.org/en-US/docs/Web/API/File_API/Using_files_from_web_applications#Using_hidden_file_input_elements_using_the_click()_method */
+	const inputFile = useRef(null)
+
+	// SHE WILL CREATE A TUTORIAL FOR THE FILE UPLOAD!
+	const onImageFileUpload = () => {
+		// `current` points to the mounted file input element
+		inputFile.current.click();
+
+		// console.log(inputFile.name)
+		// console.log(inputFile.current)
+	};
+
 	return (
 		<>
-		<div className='addmix-modal'>
+		<div className='addset-modal'>
 			<div className="container">
 				<div
 					className='row'
@@ -42,6 +58,42 @@ function AddSet({closeAddSet}) {
 
 				<br/>
 
+				
+				<div className='row px-2'>
+					<div
+						className='col-6 set-image'
+						onClick={onImageFileUpload}
+						>
+						<div className='bootstrap-center test'>click to add image</div>
+					</div>
+					<input type='file' id='file' ref={inputFile} style={{display: 'none'}}/>
+
+
+					<div className='col-6'>
+						<div>
+							<input
+								className='set-field'
+								ref={setNameFieldRef}
+								type='text'
+								placeholder='Set Name'
+								>
+							</input>
+						</div>
+
+						<div className='py-1'>
+							<input
+								className='set-field'
+								ref={tagsFieldRef}
+								type='text'
+								placeholder='tags (comma separated list)'
+								>
+							</input>
+						</div>
+					</div>
+				</div>
+
+				<br/>
+
 				<AddedMixList addedMixList={addedMixList} onClickAddedMix={onClickAddedMix}/>
 				<div className='createbutton'>
 					{/* this needs to do something */}
@@ -55,7 +107,7 @@ function AddSet({closeAddSet}) {
 				</div>
 
 				<input
-					id='searchbar'
+					id='mixsearch'
 					ref={searchFieldRef}
 					type='text'
 					placeholder='Search'

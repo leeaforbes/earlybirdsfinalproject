@@ -55,7 +55,7 @@ function AddMix({closeAddMix}) {
 				</div>
 
 				<input
-					id='searchbar'
+					id='audiosearch'
 					ref={searchFieldRef}
 					type='text'
 					placeholder='Search'

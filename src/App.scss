@@ -3,33 +3,21 @@
 .App {
   max-height: 100%;
 
+
+
+
   .main-content {
     height: 100%; // subtract the height of the header
     display: flex;
 
-    .left-box {
-      background-color: rgba(19, 18, 18, 0.5);
-      border-radius: 10px;
-      padding: 0px;
-      height:100%;
-
-      h2 {
-        margin-top: 0;
-        text-align: center;
-        color: white;
-        background-color: rgba(19, 18, 18, 0.5);
-        padding-bottom: 10px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-      }
-    }
-
     .right-box-top {
       background-color: rgba(19, 18, 18, 0.5);
-      border-radius: 10px;
+      border-radius: 0px;
       padding: 0px;
       display: flex;
       flex-direction: column;
+      width: 100%;
+      height:100%;
       flex: 1;
 
       h2 {
@@ -38,27 +26,33 @@
       }
     }
 
-    .right-box-bottom {
-      grid-column: 2;
-      grid-row: 2;
-      background-color: rgba(19, 18, 18, 0.5);
-      border-radius: 10px;
-      padding: 0px;
+    .setTitle {
       display: flex;
-      flex-direction: column;
-      flex: 1;
-
-      h2 {
-        margin-top: 0;
+      justify-content: space-between;
+      align-items: center;
+      height: 150px;
+      width:100%;
+      padding: 0 20px;
+      background-color: transparent;
+      color: #fff;
+      
+      h1 {
+        font-size: 2rem;
+        margin: 0;
         text-align: center;
+        flex-grow: 1;
       }
     }
   }
 }
+.setInfo {
+  width:100%;
+  background-color: transparent;
+}
 
 .content {
   max-width: 100%;
-  overflow-y: auto;
+  //overflow-y: auto;
 }
 
 h2 {
@@ -70,7 +64,12 @@ h2 {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
+h3{
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
 .right-row {
   max-height: 50%;
 }

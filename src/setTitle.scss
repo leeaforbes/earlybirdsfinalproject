@@ -1,0 +1,16 @@
+.setTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  padding: 0 20px;
+  background-color: #19547B;
+  color: #fff;
+  
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+  }
+}

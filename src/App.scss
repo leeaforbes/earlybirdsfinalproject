@@ -73,7 +73,11 @@ h3{
 .right-row {
   max-height: 50%;
 }
+.greybg{
+  background: linear-gradient(to right,rgba(49, 48, 48, 0.5), rgba(27, 27, 27, 0.6), rgba(27, 27, 27, 0.6), rgba(6, 6, 6, 0.7));
 
+
+}
 .add {
   margin-top: 0;
   padding: 5px;
@@ -82,4 +86,15 @@ h3{
   background-color: rgba(19, 18, 18, 0.5);
   padding-bottom: 10px;
   border-radius: 10px;
+}
+
+.headerIcon {
+  align-items: left;
+  
+  svg {
+    width: 45px;
+    height: 45px;
+    margin-left: 10px;
+    stroke: #ffffff;
+  }
 }

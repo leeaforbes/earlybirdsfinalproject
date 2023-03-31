@@ -6,6 +6,9 @@ import detailedSet from './data/detailedSet.js'
 import './App.scss';
 import MixCardBox from './MixCardBox';
 import SetCardBox from './SetCardBox';
+import { ReactComponent as DownloadIcon } from './downloadIcon.svg';
+import { ReactComponent as addFromIcon } from './add.svg';
+
 
 
 function App() {
@@ -30,6 +33,24 @@ function App() {
               <div> 4 mixes, 10 audio files</div>
             </div>
           </div>
+          <div className='row' >
+            <div className='greybg'>
+
+            
+            <div className='headerIcon'>
+            <DownloadIcon />
+            <addFromIcon />
+            </div>
+            </div>
+            </div>
+            <div className='row' >
+            <div className='greybg'>
+
+            </div>
+            </div>
+            
+
+        
     </div>
     
   </div>

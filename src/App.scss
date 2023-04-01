@@ -3,9 +3,13 @@
 .App {
   max-height: 100%;
 
+  .left-box {
+    background-color: rgba(19, 18, 18, 0.5);
+    border-radius: 10px;
+    padding: 0px;
+    height:100%;
 
-
-
+  }
   .main-content {
     height: 100%; // subtract the height of the header
     display: flex;
@@ -97,4 +101,5 @@ h3{
     margin-left: 10px;
     stroke: #ffffff;
   }
+
 }

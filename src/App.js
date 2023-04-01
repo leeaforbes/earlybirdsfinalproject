@@ -7,16 +7,16 @@ import './App.scss';
 import MixCardBox from './MixCardBox';
 import SetCardBox from './SetCardBox';
 import { ReactComponent as DownloadIcon } from './downloadIcon.svg';
-import { ReactComponent as addFromIcon } from './add.svg';
-
+import { ReactComponent as addFromIcon } from './addfromIcon.svg';
+import addImage from './addFrom.png';
 
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <div className="setInfo">
-        <div className='container'>
+      <div className="border setInfo">
+        <div className='border container-fluid m-0 p-0'>
 
       
           <div className='row' >
@@ -33,27 +33,45 @@ function App() {
               <div> 4 mixes, 10 audio files</div>
             </div>
           </div>
-          <div className='row' >
-            <div className='greybg'>
+          <div className='greybg'>
+            <div className='row' >
+              <div className='col-1 headerIcon'>
+                <DownloadIcon />
+
+          
+              </div>
+              <div className='col-2 p-1'>
+                <img src={addImage} alt='add from'>
+              
+                </img>
+              </div>
+      
 
             
-            <div className='headerIcon'>
-            <DownloadIcon />
-            <addFromIcon />
             </div>
-            </div>
-            </div>
+          <div className='row' >
             <div className='row' >
-            <div className='greybg'>
+              <div className='col'>
+
+                <div className="content">
+                  <MixCardBox mixes={mixes}/>
+                </div>
+              
+              </div>
 
             </div>
-            </div>
+
+          </div>
+          </div>
+        
+        </div>
+
             
 
         
     </div>
     
-  </div>
+
       {/* <div className="main-content">
         <div className="container">
                <div className='row'>

@@ -21,24 +21,32 @@ import upload from './upload.png';
 
 
 function App() {
+
+  var result = sets.find(item => item.id === 1);
+
   return (
+    
+    
     <div className="App">
       <Header />
-      <div className="border setInfo">
-        <div className='border container-fluid m-0 p-0'>
+      <div className="setInfo">
+        <div className='container-fluid m-0 p-0'>
 
       
           <div className='row' >
+            <div className='col-1'>
+
+            </div>
             <div className='col-3'>
-              <img src={detailedSet.image} alt={detailedSet.title} />
+              <img src={result.image} alt={result.title} />
             </div>
             
             <div className='col-8 align-self-end'>
               <div>Set</div>
-              <h3> {detailedSet.title} </h3>
-              <h3> {detailedSet.date}</h3>
+              <h3> {result.title} </h3>
+              <h3> {result.date}</h3>
               <div> modified 10/22 </div>
-              <div>{detailedSet.tags.join(', ')}</div>
+              <div>{result.tags.join(', ')}</div>
               <div> 4 mixes, 10 audio files</div>
             </div>
           </div>
@@ -71,103 +79,101 @@ function App() {
             </div>
 
           </div>
-        <div className='row'>
-        <div className='col'>
-          <div className='audio-file-card'>
-            <div className='container'>
-              <div className='row'>
-                <div className='col-2 p-0'>
-                <img src={audioFileIcon} alt='add from'/>
+        {/* <div className='row'>
+          <div className='col'>
+            <div className='audio-file-card'>
+              <div className='container'>
+                <div className='row'>
+                  <div className='col-2 p-0'>
+                    <img src={audioFileIcon} alt='add from'/>
+                  </div>
+                  <div className='col-8'>
+                    <div className='border row'>
+                      <div className='border col'>
+                        <div className="audio-file-card__title"> title </div> 
+                      </div>
+                      <div className='border col-1 p-0'>
+                        <img src={trash} alt='trash'/>
+                      </div>
+                      <div className='border col-1 p-0'>
+                        <img src={upload} alt='upload'/>
+                      </div>
+                    </div>
+                    <div className='row'>
+                      <div className="audio-file-card__artist"> artist </div>
+                    </div>
+                    <div className='row'>
+                      <div className="audio-file-card__genres"> genre </div>
+                    </div>
+                    <div className='row'>
+                      <div className="audio-file-card__length"> length </div>
+                    </div>
+      
+                  </div>
+
+                  <div className='col-1'>
+                    <div className='flex-container h-100'>
+                      <div className='row h-50'>
+                        <div className='col h-100'>
+                          <EditIcon style={{ width: '100%', height: '100%' }}/>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
                 </div>
-                <div className='col-8'>
-                  <div className='border row'>
-                    <div className='border col'>
-                      <div className="audio-file-card__title"> title </div> 
-                    </div>
-                    <div className='border col-1 p-0'>
-                      <img src={trash} alt='trash'/>
-                    </div>
-                    <div className='border col-1 p-0'>
-                      <img src={upload} alt='upload'/>
-                    </div>
+              </div>
+            
+            </div>
+          </div>
+          <div className='col'>
+            <div className='audio-file-card'>
+              <div className='container'>
+                <div className='row'>
+                  <div className='col-2 p-0'>
+                  <img src={audioFileIcon} alt='add from'/>
                   </div>
-                  <div className='row'>
+                  <div className='col-2'>
+                    <div className="audio-file-card__title"> title </div>
                     <div className="audio-file-card__artist"> artist </div>
-                  </div>
-                  <div className='row'>
                     <div className="audio-file-card__genres"> genre </div>
-                  </div>
-                  <div className='row'>
                     <div className="audio-file-card__length"> length </div>
                   </div>
-      
-                </div>
-
-                <div className='col-1'>
-                  <div className='flex-container h-100'>
-                    <div className='row h-50'>
-                      <div className='col h-100'>
-                        <EditIcon style={{ width: '100%', height: '100%' }}/>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-        <div className='col'>
-          <div className='audio-file-card'>
-            <div className='container'>
-              <div className='row'>
-                <div className='col-2 p-0'>
-                <img src={audioFileIcon} alt='add from'/>
-                </div>
-                <div className='col-2'>
-                  <div className="audio-file-card__title"> title </div>
-                  <div className="audio-file-card__artist"> artist </div>
-                  <div className="audio-file-card__genres"> genre </div>
-                  <div className="audio-file-card__length"> length </div>
-                </div>
                 
-                <div className='col-7'>
-                  <div className='row-6'>
-
-                    <img src={wave} alt='wave'/>
-                  </div>
-                  <div className='row-1'>
+                  <div className='col-7'>
+                    <div className='row-6'>
+                      <img src={wave} alt='wave'/>
+                    </div>
+                    <div className='row-1'>
                   
-                    <div className='col-1 mx-auto'>
-                      <img src={pause} alt='pause'/>
+                      <div className='col-1 mx-auto'>
+                        <img src={pause} alt='pause'/>
                     
-                  </div> 
+                    </div> 
+                  </div>
                 </div>
-                </div>
-
-                <div className='col-1'>
-                  <div className='flex-container h-100'>
-                    <div className='row h-50'>
-                      <div className='col h-100'>
+                  <div className='col-1'>
+                    <div className='flex-container h-100'>
+                      <div className='row h-50'>
+                        <div className='col h-100'>
+                        </div>
                       </div>
-                    </div>
-                    <div className='row h-50'>
-                      <div className='col h-100'>
-                      <PlayIcon style={{ width: '100%', height: '100%' }}/>
+                      <div className='row h-50'>
+                        <div className='col h-100'>
+                        <PlayIcon style={{ width: '100%', height: '100%' }}/>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+               </div>
               </div>
-            </div>
             
+            </div>
           </div>
-        </div>
+        </div> */}
       </div>
-          </div>
         
-        </div>
+    </div>
 
             
 

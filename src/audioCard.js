@@ -36,13 +36,13 @@ function AudioCard(idx){
           </div>
         </div>
         <div className='row'>
-          <div className="audio-file-card__artist"> artist </div>
+          <div className="audio-file-card__artist"> {result.artist} </div>
         </div>
         <div className='row'>
-          <div className="audio-file-card__genres"> genre </div>
+          <div className="audio-file-card__genres"> {result.genres} </div>
         </div>
         <div className='row'>
-          <div className="audio-file-card__length"> length </div>
+          <div className="audio-file-card__length"> {result.length} </div>
         </div>
 
       </div>

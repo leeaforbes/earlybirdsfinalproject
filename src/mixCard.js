@@ -34,6 +34,7 @@ const MixCard = ({ mix }) => {
                 { showMixInfo && <div className='row'>
                   {mix.audioFileIds.map((idx) => (
                     <div className='col'>
+
                     <AudioCard idx={idx} />
                     </div>
                   )

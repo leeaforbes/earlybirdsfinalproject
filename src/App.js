@@ -13,7 +13,6 @@ import { ReactComponent as FileIcon } from "./file_icon.svg";
 import { ReactComponent as EditIcon } from "./pencil-square.svg";
 import { ReactComponent as PlayIcon } from "./play-square.svg";
 import audioFileIcon from './audiofile.png';
-import AudioFileCard from './AudioFileCard';
 import wave from './wave.png';
 import pause from './pause.png';
 import trash from './trash.png';
@@ -83,7 +82,6 @@ function App() {
 
           </div>
           <div className='row' >
-          <AudioCard />
           </div>
         {/* <div className='row'>
           <div className='col'>

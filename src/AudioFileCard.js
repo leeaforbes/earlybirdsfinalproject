@@ -5,7 +5,8 @@ import { ReactComponent as EditIcon } from "./pencil-square.svg";
 import { ReactComponent as PlayIcon } from "./play-square.svg";
 import waveform from './waveform.png';
 import pause from './pause.png';
-
+import trash from './trash.png';
+import upload from './upload.png';
 const AudioFileCard = ({ audioFile }) => {
     const [showPlayAudio, setShowPlayAudio] = useState(false);
     function handleDropdownClick() {
@@ -31,7 +32,7 @@ const AudioFileCard = ({ audioFile }) => {
                   <div className="audio-file-card__genres">{audioFile.genres.join(', ')}</div>
                   <div className="audio-file-card__length">{audioFile.length}</div>
                 </div>
-                <div className='col-7'>
+                <div className='col-5'>
                 { showPlayAudio && <div className='fluid-container m-0'>
                     <div className='row h-70'>
                       <div className='fluid-container m-0'>
@@ -44,6 +45,12 @@ const AudioFileCard = ({ audioFile }) => {
                       </div>
                     </div>
                   </div> }
+                </div>
+                <div className='col-1 p-0'>
+                  <img src={trash} alt='trash' style={{ width: '50px', height: '50px' }}/>
+                </div>
+                <div className='col-1 p-0'>
+                  <img src={upload} alt='upload' style={{ width: '50px', height: '50px' }}/>
                 </div>
                 <div className='col-1'>
                   <div className='flex-container h-100'>

@@ -44,12 +44,12 @@ function App() {
             </div>
             
             <div className='col-8 align-self-end'>
-              <div>Set</div>
-              <h3> {result.title} </h3>
-              <h3> {result.date}</h3>
-              <div> modified 10/22 </div>
-              <div>{result.tags.join(', ')}</div>
-              <div> 4 mixes, 10 audio files</div>
+              <h4>Set</h4>
+              <h4> {result.title} </h4>
+              <h4> {result.date}</h4>
+              <h5> modified 10/22 </h5>
+              <h5>{result.tags.join(', ')}</h5>
+              <h5> 4 mixes, 10 audio files</h5>
             </div>
           </div>
           <div className='greybg'>

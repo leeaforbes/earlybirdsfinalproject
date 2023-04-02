@@ -1,8 +1,8 @@
 import React from 'react';
 import './AudioFileCard.scss';
-import { ReactComponent as FileIcon } from "./file_icon.svg";
-import { ReactComponent as EditIcon } from "./pencil-square.svg";
-  import { ReactComponent as PlayIcon } from "./play-square.svg";
+import { ReactComponent as FileIcon } from "./data/images/file_icon.svg";
+import { ReactComponent as EditIcon } from "./data/images/pencil-square.svg";
+  import { ReactComponent as PlayIcon } from "./data/images/play-square.svg";
 
 const AudioFileCard = ({ audioFile }) => {
   return (

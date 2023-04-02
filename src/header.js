@@ -1,8 +1,8 @@
 import React from 'react';
 import './header.scss';
-import { ReactComponent as ReminderIcon } from './reminder.svg';
-import { ReactComponent as InfoIcon } from './info.svg';
-import { ReactComponent as SidebarIcon } from './list.svg';
+import { ReactComponent as ReminderIcon } from './data/images/reminder.svg';
+import { ReactComponent as InfoIcon } from './data/images/info.svg';
+import { ReactComponent as SidebarIcon } from './data/images/list.svg';
 
 function Header(props) {
   return (

@@ -1,13 +1,14 @@
 import React from 'react';
 import './SetCard.scss';
 
-const SetCard = ({ set }) => {
-  const { title, image, date, tags } = set;
+const SetCard = ({ set, loadSetView }) => {
+  const { id, title, image, date, tags } = set;
 
   return (
-    
-
-      <div className='set-card'>
+      <div
+        className='set-card'
+        onClick={() => loadSetView(id)}
+      >
         <div className='row' >
           <div className='col-3'>
               <div className="set-card__image">

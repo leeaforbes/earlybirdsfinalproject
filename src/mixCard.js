@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './mixCard.scss';
-import { ReactComponent as DropdownIcon } from "./dropdownIcon.svg";
+import { ReactComponent as DropdownIcon } from "./data/images/dropdownIcon.svg";
 
 const MixCard = ({ mix }) => {
   return (

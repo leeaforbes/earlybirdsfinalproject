@@ -21,7 +21,7 @@ function App() {
   return (
     <>
     
-    { (setView !== -1) ? <DetailedSetView id={setView} /> :
+    { (setView !== -1) ? <DetailedSetView id={setView} backButtonOnClick={() => loadSetView(-1)}/> :
     
     <div className="App">
       <Header />

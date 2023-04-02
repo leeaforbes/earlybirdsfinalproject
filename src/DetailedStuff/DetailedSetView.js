@@ -9,7 +9,7 @@ import addImage from '../data/images/addFrom.png';
 import backImage from '../data/images/back.png';
 
 
-function DetailedSetView({id}) {
+function DetailedSetView({id, backButtonOnClick}) {
 
   var result = sets.find(item => item.id === id);
 
@@ -25,7 +25,11 @@ function DetailedSetView({id}) {
           <div className='row' >
             <div className='col-1'>
             <div className='row-1' >
-              <img src={backImage} alt='back' style={{ width: '45px', height: '45px' }}/>
+              <img
+                src={backImage} alt='back'
+                style={{ width: '45px', height: '45px' }}
+                onClick={backButtonOnClick}
+              />
             </div>
             </div>
             <div className='col-3'>

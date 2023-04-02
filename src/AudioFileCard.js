@@ -28,11 +28,11 @@ const AudioFileCard = ({ audioFile }) => {
                 </div>
                 <div className='col-2'>
                   <div className="audio-file-card__title">{audioFile.title}</div>
-                  <div className="audio-file-card__artist">{audioFile.artist}</div>
-                  <div className="audio-file-card__genres">{audioFile.genres.join(', ')}</div>
-                  <div className="audio-file-card__genres">{audioFile.tags}</div>
+                  <div className="audio-file-card__artist">Artist: {audioFile.artist}</div>
+                  <div className="audio-file-card__genres">Genre: {audioFile.genres.join(', ')}</div>
+                  <div className="audio-file-card__genres">Tags: {audioFile.tags}</div>
                   
-                  <div className="audio-file-card__length">{audioFile.length}</div>
+                  <div className="audio-file-card__length">Length: {audioFile.length}</div>
                 </div>
                 <div className='col-5'>
                 { showPlayAudio && <div className='fluid-container m-0'>

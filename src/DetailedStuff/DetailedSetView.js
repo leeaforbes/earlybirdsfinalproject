@@ -11,7 +11,7 @@ import backImage from '../data/images/back.png';
 
 function DetailedSetView({id}) {
 
-  var result = sets.find(item => item.id === 1);
+  var result = sets.find(item => item.id === id);
 
   return (
     

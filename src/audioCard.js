@@ -1,4 +1,5 @@
-import './audioCard.scss';
+import './AudioCard.scss';
+import React from 'react';
 import { ReactComponent as DropdownIcon } from "./dropdownIcon.svg";
 import audioFileIcon from './audiofile.png';
 import AudioFileCard from './AudioFileCard';
@@ -9,9 +10,13 @@ import pause from './pause.png';
 import trash from './trash.png';
 import upload from './upload.png';
 import { useState } from 'react';
-function audioCard1(){
+import audios from './data/audios.js';
 
+function AudioCard(idx){
 
+  var result = audios.find(item => item.id === 1);
+  
+  return(
 <div className='audio-file-card'>
   <div className='container'>
     <div className='row'>
@@ -21,7 +26,7 @@ function audioCard1(){
       <div className='col-8'>
         <div className='row'>
           <div className='col'>
-            <div className="audio-file-card__title"> title </div> 
+            <div className="audio-file-card__title"> {result.title} </div> 
           </div>
           <div className='col-1 p-0'>
             <img src={trash} alt='trash'/>
@@ -56,7 +61,7 @@ function audioCard1(){
   </div>
   
 </div>
+  );
+};
 
-}
-
-export default audioCard1;
+export default AudioCard;

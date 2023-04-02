@@ -11,72 +11,44 @@ import pause from './pause.png';
 import trash from './trash.png';
 import upload from './upload.png';
 import { useState } from 'react';
-import audioCard from './audioCard';
+import AudioCard from './AudioCard';
+import audios from './data/audios.js';
+
 
 const MixCard = ({ mix }) => {
-  const [showInfo, setShowInfo] = useState(false)
+  const [showMixInfo, setShowMixInfo] = useState(false);
+  const filteredObjects = audios.filter(obj => mix.audioFileIds.includes(obj.id));
+  
+  function handleDropdownClick() {
+    setShowMixInfo(!showMixInfo);
+    console.log('showInfo: ' + showMixInfo);
+  }
+
   return (
+
     <div className="mix-card">
       <div className='container-fluid'>
         <div className='row'>
           <div className='col-11'>
             <div className="mix-card__title">{mix.title}</div>
-            <div className='row'>
-             
-         <div className='col'>
-          <div className='audio-file-card'>
-            <div className='container'>
-              <div className='row'>
-                <div className='col-2 p-0'>
-                <img src={audioFileIcon} alt='add from'/>
-                </div>
-                <div className='col-8'>
-                  <div className='row'>
+                { showMixInfo && <div className='row'>
+                  {mix.audioFileIds.map((idx) => (
                     <div className='col'>
-                      <div className="audio-file-card__title"> title </div> 
+                    <AudioCard idx={idx} />
                     </div>
-                    <div className='col-1 p-0'>
-                      <img src={trash} alt='trash'/>
-                    </div>
-                    <div className='col-1 p-0'>
-                      <img src={upload} alt='upload'/>
-                    </div>
-                  </div>
-                  <div className='row'>
-                    <div className="audio-file-card__artist"> artist </div>
-                  </div>
-                  <div className='row'>
-                    <div className="audio-file-card__genres"> genre </div>
-                  </div>
-                  <div className='row'>
-                    <div className="audio-file-card__length"> length </div>
-                  </div>
-      
+                  )
+                  )}
                 </div>
-
-                <div className='col-1'>
-                  <div className='flex-container h-100'>
-                    <div className='row h-50'>
-                      <div className='col h-100'>
-                        <EditIcon style={{ width: 40, height: 40 }}/>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
+                }  
             </div>
-            
-          </div>
-        </div> 
-
-        <div className='col'>
+        {/* <div className='col'>
           <div className='audio-file-card'>
             <div className='container'>
               <div className='row'>
                 <div className='col-2 p-0'>
                 <img src={audioFileIcon} alt='add from'/>
                 </div>
+
                 <div className='col-2'>
                   <div className="audio-file-card__title"> title </div>
                   <div className="audio-file-card__artist"> artist </div>
@@ -117,14 +89,17 @@ const MixCard = ({ mix }) => {
           </div>
           </div>
           </div>
-          </div>
+          </div> */}
           <div className='col-1'>
+            <DropdownIcon onClick={handleDropdownClick}/>
             {/* <DropdownIcon onClick={() => {setShowInfo(!showInfo)}}>
             { showInfo ? <Component /> : null }
             </DropdownIcon> */}
           </div>
-        </div>
+        
       </div>
+    </div>
+
     </div>
   );
 };

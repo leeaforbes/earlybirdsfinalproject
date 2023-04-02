@@ -1,13 +1,13 @@
 import image4 from "./images/summer.png";
 
-const detailedSet = 
+const detailedAudio = 
 {
-    id: 1,
-    title: "Summer Vibes",
-    image: image4,
-    date: "August 2022",
-    tags: ["house", "techno", "disco"],
-    mixes: [1, 2, 3],
-  }
+  id: 1,
+  title: "Song A",
+  artist: "Artist A",
+  genres: ["Pop", "Electronic"],
+  length: "3:30",
+  bpm: 120
+}
 
-export default detailedSet;
+export default detailedAudio;

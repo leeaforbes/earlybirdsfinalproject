@@ -18,7 +18,8 @@ import wave from './wave.png';
 import pause from './pause.png';
 import trash from './trash.png';
 import upload from './upload.png';
-
+import backImage from './back.png';
+import AudioCard from './AudioCard';
 
 function App() {
 
@@ -35,7 +36,9 @@ function App() {
       
           <div className='row' >
             <div className='col-1'>
-
+            <div className='row-1' >
+              <img src={backImage} alt='back' />
+            </div>
             </div>
             <div className='col-3'>
               <img src={result.image} alt={result.title} />
@@ -78,6 +81,9 @@ function App() {
 
             </div>
 
+          </div>
+          <div className='row' >
+          <AudioCard />
           </div>
         {/* <div className='row'>
           <div className='col'>

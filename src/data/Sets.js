@@ -25,7 +25,7 @@ const sets = [
       title: "Dan's Bday",
       image: image1,
       date: "December 2022",
-      tags: ["downtempo", "ambient"],
+      tags: ["house", "party"],
       mixes: [4, 5],
     },
     {
@@ -33,7 +33,7 @@ const sets = [
       title: "Claudia's Baby Shower",
       image: image2,
       date: "December 2022",
-      tags: ["downtempo", "ambient"],
+      tags: ["chill", "ambient"],
       mixes: [4, 5],
     }
     // additional sets...

@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AudioFileCard.scss';
 import { ReactComponent as FileIcon } from "./file_icon.svg";
 import { ReactComponent as EditIcon } from "./pencil-square.svg";
-  import { ReactComponent as PlayIcon } from "./play-square.svg";
+import { ReactComponent as PlayIcon } from "./play-square.svg";
+import waveform from './waveform.png';
+import pause from './pause.png';
 
 const AudioFileCard = ({ audioFile }) => {
+    const [showPlayAudio, setShowPlayAudio] = useState(false);
+    function handleDropdownClick() {
+      setShowPlayAudio(!showPlayAudio);
+      console.log('showInfo: ' + showPlayAudio);
+    }
+
   return (
+
+    
 
       <div className='row'>
         <div className='col'>
@@ -15,11 +25,25 @@ const AudioFileCard = ({ audioFile }) => {
                 <div className='col-2'>
                   <FileIcon style={{ width: '100%', height: '100%' }}/>
                 </div>
-                <div className='col-9'>
+                <div className='col-2'>
                   <div className="audio-file-card__title">{audioFile.title}</div>
                   <div className="audio-file-card__artist">{audioFile.artist}</div>
                   <div className="audio-file-card__genres">{audioFile.genres.join(', ')}</div>
                   <div className="audio-file-card__length">{audioFile.length}</div>
+                </div>
+                <div className='col-7'>
+                { showPlayAudio && <div className='fluid-container m-0'>
+                    <div className='row h-70'>
+                      <div className='fluid-container m-0'>
+                        <img className='waveform' src={waveform} alt='waveform'/>
+                      </div>
+                    </div>
+                    <div className='row h-30'>
+                      <div className='col'>
+                        <img className='pause' src={pause} alt='pause' style={{ width: '20px', height: '20px' }}/>
+                      </div>
+                    </div>
+                  </div> }
                 </div>
                 <div className='col-1'>
                   <div className='flex-container h-100'>
@@ -30,7 +54,7 @@ const AudioFileCard = ({ audioFile }) => {
                     </div>
                     <div className='row h-50'>
                       <div className='col h-100'>
-                      <PlayIcon style={{ width: '100%', height: '100%' }}/>
+                      <PlayIcon onClick={handleDropdownClick} style={{ width: '100%', height: '100%' }}/>
                       </div>
                     </div>
                   </div>

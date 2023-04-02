@@ -11,8 +11,10 @@ import pause from './pause.png';
 import trash from './trash.png';
 import upload from './upload.png';
 import { useState } from 'react';
-import AudioCard from './AudioCard';
-import audios from './data/audios.js';
+import MixCardInfo from "./mixCardInfo.js";
+import audios from './data/audios';
+import AudioFileCardBox from "./AudioFileCardBox"
+
 
 
 const MixCard = ({ mix }) => {
@@ -32,13 +34,14 @@ const MixCard = ({ mix }) => {
           <div className='col-11'>
             <div className="mix-card__title">{mix.title}</div>
                 { showMixInfo && <div className='row'>
-                  {mix.audioFileIds.map((idx) => (
+                  {/* {mix.audioFileIds.map((idx) => (
                     <div className='col'>
 
                     <AudioCard idx={idx} />
                     </div>
                   )
-                  )}
+                  )} */}
+                  <AudioFileCardBox audios={filteredObjects}></AudioFileCardBox>
                 </div>
                 }  
             </div>

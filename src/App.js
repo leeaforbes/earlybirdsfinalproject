@@ -18,7 +18,7 @@ import pause from './pause.png';
 import trash from './trash.png';
 import upload from './upload.png';
 import backImage from './back.png';
-import AudioCard from './AudioCard';
+
 
 function App() {
 

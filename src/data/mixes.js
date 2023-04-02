@@ -22,7 +22,7 @@ const mixes = [
     },
     {
       id: 4,
-      title: "Mix 3",
+      title: "Mix 4",
       audioFileIds: [4, 5],
       showInfo: false,
       description: "This is the fourth mix"

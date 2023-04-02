@@ -6,7 +6,7 @@ import { ReactComponent as InfoIcon } from './info.svg';
 
 function Header(props) {
   return (
-    <div className="header">
+    <div className="header black-border">
       <div className="header-icons">
         <ReminderIcon />
         <InfoIcon />

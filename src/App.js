@@ -53,7 +53,7 @@ function App() {
             </div>
           </div>
           <div className='greybg'>
-            <div className='row' >
+            <div className='border-bottom row' >
               <div className='col-1 headerIcon'>
                 <DownloadIcon />
 
@@ -68,7 +68,7 @@ function App() {
 
             
             </div>
-          <div className='row' >
+          <div className='row m-1' >
             <div className='row' >
               <div className='col'>
 

@@ -36,7 +36,7 @@ function App() {
           <div className='row' >
             <div className='col-1'>
             <div className='row-1' >
-              <img src={backImage} alt='back' />
+              <img src={backImage} alt='back' style={{ width: '45px', height: '45px' }}/>
             </div>
             </div>
             <div className='col-3'>
@@ -59,8 +59,8 @@ function App() {
 
           
               </div>
-              <div className='col-2 p-1'>
-                <img src={addImage} alt='add from'>
+              <div className='col-2 p-2'>
+                <img src={addImage} alt='add from' style={{ width: '220px', height: '60px' }}>
               
                 </img>
               </div>

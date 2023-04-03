@@ -13,9 +13,9 @@ import DetailedSetView from './DetailedStuff/DetailedSetView';
 import Sidebar from './Sidebar';
 import Reminders from './Reminders'
 // import ReminderAlert from './ReminderAlert'
-// import AddAudio from './AddAudio'
-// import AddMix from './AddMix'
-// import AddSet from './AddSet'
+import AddSet from './AddSet'
+import AddMix from './AddMix'
+import AddAudio from './AddAudio'
 
 function App() {
 
@@ -24,9 +24,9 @@ function App() {
   const [showSidebar, setShowSidebar] = useState(false)
   const [showReminders, setShowReminders] = useState(false)
   // const [showReminderAlert, setShowReminderAlert] = useState(false)
-  // const [showAddAudio, setShowAddAudio] = useState(false)
-  // const [showAddMix, setShowAddMix] = useState(false)
-  // const [showAddSet, setShowAddSet] = useState(false)
+  const [showAddAudio, setShowAddAudio] = useState(false)
+  const [showAddMix, setShowAddMix] = useState(false)
+  const [showAddSet, setShowAddSet] = useState(false)
 
   function loadSetView(id) {
     setSetView(id)
@@ -39,12 +39,27 @@ function App() {
   function toggleReminders(){
     setShowReminders(!showReminders)
   }
+  
+  function addSetPopup(value){
+    setShowAddSet(value)
+  }
+
+  function addMixPopup(value){
+    setShowAddMix(value)
+  }
+  
+  function addAudioPopup(value){
+    setShowAddAudio(value)
+  }
 
   return (
     <>
     
     { showSidebar ? <Sidebar toggleSidebar={toggleSidebar}/> : null}
     { showReminders ? <Reminders /> : null}
+    { showAddSet ? <AddSet addSetPopup={() => addSetPopup(false)} /> : null}
+    { showAddMix ? <AddMix addMixPopup={() => addMixPopup(false)} /> : null}
+    { showAddAudio ? <AddAudio addAudioPopup={() => addAudioPopup(false)} /> : null}
 
     { (setView !== -1) ? <DetailedSetView id={setView} backButtonOnClick={() => loadSetView(-1)}/> :
     
@@ -57,7 +72,7 @@ function App() {
             <div className="left-box">
             <h2>Sets</h2>
               <div className="content">
-                <SetCardBox sets={sets} loadSetView={loadSetView}/>
+                <SetCardBox sets={sets} loadSetView={loadSetView} addSetPopup={() => addSetPopup(true)} />
               </div>
     
 
@@ -70,7 +85,7 @@ function App() {
                   <div className="right-box-top">
                     <h2>Mixes</h2>
                     <div className="content">
-                      <MixCardBox mixes={mixes} />
+                      <MixCardBox mixes={mixes} addMixPopup={() => addMixPopup(true)}/>
                     </div>
                   </div>
                  </div>
@@ -80,7 +95,7 @@ function App() {
                    <div className="right-box-bottom">
                       <h2>Audio Files</h2>
                       <div className="content">
-                        <AudioFileCardBox audios={audios} />
+                        <AudioFileCardBox audios={audios} addAudioPopup={() => addAudioPopup(true)}/>
                       </div>
                   </div>
                 </div>

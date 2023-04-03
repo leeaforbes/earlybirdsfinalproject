@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import './AddSet.scss'
 
-function AddSet({closeAddSet}) {
+function AddSet({addSetPopup}) {
 
 	const setNameFieldRef = useRef(null)
 	const tagsFieldRef = useRef(null)
@@ -50,7 +50,7 @@ function AddSet({closeAddSet}) {
 					{/* this should also probably be an icon */}
 					<div
 						className='col-1 white'
-						onClick={() => closeAddSet()}
+						onClick={addSetPopup}
 					>
 						X
 					</div>

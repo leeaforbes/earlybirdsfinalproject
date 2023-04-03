@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import './AddMix.scss'
 
-function AddMix({closeAddMix}) {
+function AddMix({addMixPopup}) {
 
 	const [addedAudioList, setAddedAudioList] = useState([])
 	const [audioList] = useState(["rhiannon.mp4", "feelwu.mp4", "drumzzz.mp4", "krabpizza.mp4", "untitled4.mp4", "rhiannon2.mp4"])
@@ -34,7 +34,7 @@ function AddMix({closeAddMix}) {
 					{/* this should also probably be an icon */}
 					<div
 						className='col-1 white'
-						onClick={() => closeAddMix()}
+						onClick={() => addMixPopup()}
 					>
 						X
 					</div>

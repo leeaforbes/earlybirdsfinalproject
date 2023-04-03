@@ -2,7 +2,7 @@ import React from 'react';
 import SetCard from './SetCard';
 import './SetCardBox.scss';
 
-const SetCardBox = ({ sets, loadSetView }) => {
+const SetCardBox = ({ sets, loadSetView, addSetPopup }) => {
   return (
     <div className="container-fluid set-card-box">
       {sets.map(set => (
@@ -12,7 +12,10 @@ const SetCardBox = ({ sets, loadSetView }) => {
           </div>
         </div>
       ))}
-      <div className='add'> + </div>
+      <div
+        className='add'
+        onClick={addSetPopup}
+      > + </div>
     </div>
   );
 };

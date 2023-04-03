@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import './AddAudio.scss'
 
-function AddAudio({closeAddAudio}) {
+function AddAudio({addAudioPopup}) {
 
 	const inputFile = useRef(null)
 
@@ -23,7 +23,7 @@ function AddAudio({closeAddAudio}) {
 					{/* this should also probably be an icon */}
 					<div
 						className='col-1 white'
-						onClick={() => closeAddAudio()}
+						onClick={() => addAudioPopup()}
 					>
 						X
 					</div>

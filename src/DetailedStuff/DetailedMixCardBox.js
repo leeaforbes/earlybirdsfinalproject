@@ -3,7 +3,7 @@ import React from 'react';
 import MixCard from './DetailedMixCard';
 import './DetailedMixCardBox.scss';
 
-const MixCardBox = ({ mixes }) => {
+const MixCardBox = ({ mixes, addMixPopup }) => {
   return (
     <div className="container-fluid mix-card-box">
       {mixes.map(mix => (
@@ -15,7 +15,10 @@ const MixCardBox = ({ mixes }) => {
       ))}
       <div className='row'>
         <div className='col'>
-          <div className='add'> + </div>
+          <div
+            className='add'
+            onClick={addMixPopup}
+          > + </div>
         </div>
       </div>
     </div>

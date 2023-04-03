@@ -3,13 +3,13 @@ import Header from '../header';
 import mixes from '../data/mixes.js';
 import sets from '../data/sets.js';
 import './DetailedSetView.scss';
-import MixCardBox from './DetailedMixCardBox';
+import DetailedMixCardBox from './DetailedMixCardBox';
 import { ReactComponent as DownloadIcon } from '../data/images/downloadIcon.svg';
 import addImage from '../data/images/addFrom.png';
 import backImage from '../data/images/back.png';
 
 
-function DetailedSetView({id, backButtonOnClick}) {
+function DetailedSetView({id, backButtonOnClick, toggleSidebar, toggleReminders, addMixPopup}) {
 
   var result = sets.find(item => item.id === id);
 
@@ -17,7 +17,7 @@ function DetailedSetView({id, backButtonOnClick}) {
     
     
     <div className="App">
-      <Header />
+      <Header toggleSidebar={toggleSidebar} toggleReminders={toggleReminders}/>
       <div className="setInfo">
         <div className='container-fluid m-0 p-0'>
 
@@ -66,7 +66,7 @@ function DetailedSetView({id, backButtonOnClick}) {
               <div className='col'>
 
                 <div className="content">
-                  <MixCardBox mixes={mixes}/>
+                  <DetailedMixCardBox mixes={mixes} addMixPopup={addMixPopup}/>
                 </div>
               
               </div>

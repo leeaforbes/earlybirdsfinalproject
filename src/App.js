@@ -61,7 +61,7 @@ function App() {
     { showAddMix ? <AddMix addMixPopup={() => addMixPopup(false)} /> : null}
     { showAddAudio ? <AddAudio addAudioPopup={() => addAudioPopup(false)} /> : null}
 
-    { (setView !== -1) ? <DetailedSetView id={setView} backButtonOnClick={() => loadSetView(-1)}/> :
+    { (setView !== -1) ? <DetailedSetView id={setView} backButtonOnClick={() => loadSetView(-1)} toggleSidebar={toggleSidebar} toggleReminders={toggleReminders} addMixPopup={() => addMixPopup(true)}/> :
     
     <div className="App">
       <Header toggleSidebar={toggleSidebar} toggleReminders={toggleReminders}/>

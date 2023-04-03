@@ -2,7 +2,7 @@ import React from 'react';
 import './SetCard.scss';
 
 const SetCard = ({ set, loadSetView }) => {
-  const { id, title, image, date, tags } = set;
+  const { id, title, image, date} = set;
 
   return (
       <div

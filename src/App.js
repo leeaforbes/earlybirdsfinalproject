@@ -11,7 +11,7 @@ import SetCardBox from './SetCardBox';
 import DetailedSetView from './DetailedStuff/DetailedSetView';
 
 import Sidebar from './Sidebar';
-// import Reminders from './Reminders'
+import Reminders from './Reminders'
 // import ReminderAlert from './ReminderAlert'
 // import AddAudio from './AddAudio'
 // import AddMix from './AddMix'
@@ -22,7 +22,7 @@ function App() {
   const [setView, setSetView] = useState(-1)
 
   const [showSidebar, setShowSidebar] = useState(false)
-  // const [showReminders, setShowReminders] = useState(false)
+  const [showReminders, setShowReminders] = useState(false)
   // const [showReminderAlert, setShowReminderAlert] = useState(false)
   // const [showAddAudio, setShowAddAudio] = useState(false)
   // const [showAddMix, setShowAddMix] = useState(false)
@@ -35,16 +35,21 @@ function App() {
   function toggleSidebar() {
     setShowSidebar(!showSidebar)
   }
+  
+  function toggleReminders(){
+    setShowReminders(!showReminders)
+  }
 
   return (
     <>
     
     { showSidebar ? <Sidebar toggleSidebar={toggleSidebar}/> : null}
+    { showReminders ? <Reminders /> : null}
 
     { (setView !== -1) ? <DetailedSetView id={setView} backButtonOnClick={() => loadSetView(-1)}/> :
     
     <div className="App">
-      <Header toggleSidebar={toggleSidebar}/>
+      <Header toggleSidebar={toggleSidebar} toggleReminders={toggleReminders}/>
       <main className="main-content">
       <div className="container-fluid">
         <div className='row mb-3'>

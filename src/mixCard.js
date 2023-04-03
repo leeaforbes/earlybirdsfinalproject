@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './mixCard.scss';
-import { ReactComponent as DropdownIcon } from "./dropdownIcon.svg";
-import MixCardInfo from "./mixCardInfo.js";
+import { ReactComponent as DropdownIcon } from "./data/images/dropdownIcon.svg";
 import audios from './data/audios';
 import AudioFileCardBox from "./AudioFileCardBox"
 

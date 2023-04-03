@@ -1,0 +1,27 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./common.scss";
+
+.addaudio-modal {
+	left: 40vw;
+	top: 40vh;
+	width: 20vw; /* Full width */
+	height: 20vh; /* Full height */
+	background-color: #6697C5;
+	position: fixed; /* Stay in place */
+	z-index: 100; /* Sit on top */
+	overflow: auto; /* Enable scroll if needed */
+	border: 1px solid black;
+	@extend .px-2;
+	@extend .py-2;
+}
+
+.label {
+	@extend .white;
+	font-size: large;
+}
+
+.label-bold {
+	@extend .label;
+    font-weight: bold;
+	font-size: large;
+}

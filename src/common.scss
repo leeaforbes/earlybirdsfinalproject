@@ -1,0 +1,16 @@
+// this combines all three classes into one, GGEZ
+.bootstrap-center {
+  @extend .d-flex;
+  @extend .align-items-center;
+  @extend .justify-content-center;
+}
+
+.title {
+	@extend .white;
+	font-weight: bold;
+	font-size: x-large;
+}
+
+.white {
+  color: white;
+}

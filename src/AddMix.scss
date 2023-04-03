@@ -1,0 +1,37 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./common.scss";
+
+.addmix-modal {
+    left: 35vw;
+	top: 20vh;
+	width: 30vw; /* Full width */
+	height: 60vh; /* Full height */
+    background-color: #6697C5;
+	position: fixed; /* Stay in place */
+	z-index: 100; /* Sit on top */
+	overflow: auto; /* Enable scroll if needed */
+	border: 1px solid black;
+    @extend .px-2;
+	@extend .py-2;
+}
+
+.createbutton {
+    @extend .d-flex;
+    @extend .flex-row-reverse;
+}
+
+#audiosearch {
+    margin: 5%;
+    width: 90%;
+}
+
+.label {
+	@extend .white;
+	font-size: large;
+}
+
+.label-bold {
+	@extend .label;
+    font-weight: bold;
+	font-size: large;
+}

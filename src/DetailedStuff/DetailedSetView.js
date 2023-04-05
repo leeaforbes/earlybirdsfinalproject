@@ -49,17 +49,15 @@ function DetailedSetView({id, backButtonOnClick, toggleSidebar, toggleReminders,
             <div className='border-bottom row' >
               <div className='col-1 headerIcon'>
                 <DownloadIcon />
-
-          
               </div>
               <div className='col-2 p-2'>
-                <img src={addImage} alt='add from' style={{ width: '220px', height: '60px' }}>
-              
-                </img>
+                <img
+                  src={addImage}
+                  alt='add from'
+                  style={{ width: '220px', height: '60px' }}
+                  onClick={addMixPopup}
+                />
               </div>
-      
-
-            
             </div>
           <div className='row m-1' >
             <div className='row' >

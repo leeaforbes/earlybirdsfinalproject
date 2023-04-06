@@ -1,0 +1,12 @@
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+.set-menu {
+	color: white;
+	font-weight: bold;
+}
+  
+.justify-right {
+	@extend .d-flex;
+	@extend .flex-row-reverse;
+	width: 100%;
+}

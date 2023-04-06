@@ -12,7 +12,7 @@ import backImage from '../data/images/back.png';
 function DetailedSetView({id, backButtonOnClick, toggleSidebar, toggleReminders, addMixPopup}) {
 
   var result = sets.find(item => item.id === id);
-
+  const filteredObjects = mixes.filter(obj => result.mixes.includes(obj.id));
   return (
     
     
@@ -64,7 +64,7 @@ function DetailedSetView({id, backButtonOnClick, toggleSidebar, toggleReminders,
               <div className='col'>
 
                 <div className="content">
-                  <DetailedMixCardBox mixes={mixes} addMixPopup={addMixPopup}/>
+                  <DetailedMixCardBox mixes={filteredObjects} addMixPopup={addMixPopup}/>
                 </div>
               
               </div>

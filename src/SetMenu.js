@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './SetMenu.scss';
 
-const SetMenu = ({deleteSet}) => {
+const SetMenu = ({ setSetEditMode, deleteSet }) => {
 
   const [showMenu, setShowMenu] = useState(false)
 
@@ -22,6 +22,7 @@ const SetMenu = ({deleteSet}) => {
 								className='col justify-right border mx-2'
 								onClick={() => {
 									setShowMenu(false)
+									setSetEditMode(true)
 								}}
 							>
 								Edit

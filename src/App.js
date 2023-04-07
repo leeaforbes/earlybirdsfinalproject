@@ -70,7 +70,7 @@ function App() {
   }
 
   function editSet(newSet){
-    // console.log("attempting to edit audio", newAudio)
+    // console.log("attempting to edit set", newSet)
     
     const setsCopy = sets.map((s) => {
       if(s.id === newSet.id){
@@ -80,7 +80,7 @@ function App() {
       }
     })
     
-    setAudios(setsCopy)
+    setSets(setsCopy)
   }
   
   function deleteSet(setId){

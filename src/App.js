@@ -69,6 +69,10 @@ function App() {
     setAudios(audiosCopy)
   }
 
+  function deleteAudio(audioId){
+    setAudios(audios.filter(a => a.id !== audioId))
+  }
+
   function editSet(newSet){
     // console.log("attempting to edit set", newSet)
     
@@ -84,7 +88,7 @@ function App() {
   }
   
   function deleteSet(setId){
-    console.log("attempting to delete set", setId)
+    // console.log("attempting to delete set", setId)
     setSets(sets.filter(s => s.id !== setId))
   }
 
@@ -131,7 +135,7 @@ function App() {
                    <div className="right-box-bottom">
                       <h2>Audio Files</h2>
                       <div className="content">
-                        <AudioFileCardBox audios={audios} addAudioPopup={() => addAudioPopup(true)} editAudio={editAudio} />
+                        <AudioFileCardBox audios={audios} addAudioPopup={() => addAudioPopup(true)} editAudio={editAudio} deleteAudio={deleteAudio}/>
                       </div>
                   </div>
                 </div>

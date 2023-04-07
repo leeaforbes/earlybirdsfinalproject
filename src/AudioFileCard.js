@@ -9,7 +9,7 @@ import { ReactComponent as UploadIcon } from "./data/images/folder-upload.svg";
 import waveform from './data/images/waveform.png';
 import pause from './data/images/pause.png';
 
-const AudioFileCard = ({ audioFile, editAudio }) => {
+const AudioFileCard = ({ audioFile, editAudio, deleteAudio }) => {
 
 	const editFields = {
 		titleField: useRef(null),
@@ -58,7 +58,7 @@ const AudioFileCard = ({ audioFile, editAudio }) => {
                 </div>
 
                 { showPlayAudio && <Listen /> }
-                {isEditMode && <EditButtons />}
+                {isEditMode && <EditButtons deleteAudio={() => deleteAudio(audioFile.id)} />}
                 <div className='col-1'>
                   <div className='flex-container h-100'>
                     <div className='row h-50'>
@@ -117,7 +117,7 @@ function Listen() {
   </div>;
 }
 
-function EditButtons() {
+function EditButtons({deleteAudio}) {
   return <div className='col-1'>
                   <div className='flex-container h-100'>
                     <div className='row h-50'>
@@ -131,6 +131,7 @@ function EditButtons() {
                       <div className='col h-100'>
                       <TrashIcon 
                         style={{ width: '100%', height: '100%' }}
+                        onClick={deleteAudio}
                       />
                       </div>
                     </div>

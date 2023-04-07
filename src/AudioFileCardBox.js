@@ -9,7 +9,7 @@ const AudioFileCardBox = ({ audios, addAudioPopup, editAudio }) => {
     <div className="audio-file-card-box">
       <div className='container-fluid'>
       {audios.map(audio => (   
-                  <AudioFileCard audioFile={audio} editAudio={editAudio} /> 
+                  <AudioFileCard audioFile={audio} editAudio={editAudio} key={audio.title + audio.id} /> 
       ))}
       <div className='row'>
         <div className='col'>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import React from 'react';
 import Header from './header';
 import  AudioFileCardBox from './AudioFileCardBox.js';
-import audios from './data/audios.js';
+import audios_raw from './data/audios.js';
 import mixes from './data/mixes.js';
 import sets from './data/sets.js';
 import './App.scss';
@@ -28,6 +28,8 @@ function App() {
   const [showAddMix, setShowAddMix] = useState(false)
   const [showAddSet, setShowAddSet] = useState(false)
 
+  const [audios, setAudios] = useState(audios_raw)
+
   function loadSetView(id) {
     setSetView(id)
   }
@@ -52,6 +54,22 @@ function App() {
     setShowAddAudio(value)
   }
 
+  function editAudio(newAudio){
+    // console.log("attempting to edit audio", newAudio)
+
+    const audiosCopy = audios.map((a, i) => {
+      if(i === newAudio.id){
+        return newAudio
+      } else {
+        return a
+      }
+    })
+
+    setAudios(audiosCopy)
+
+    // audios[newAudio.id] = newAudio
+  }
+
   return (
     <>
     
@@ -62,7 +80,7 @@ function App() {
     { showAddAudio ? <AddAudio addAudioPopup={() => addAudioPopup(false)} /> : null}
 
     { (setView !== -1) ? <DetailedSetView id={setView} backButtonOnClick={() => loadSetView(-1)} toggleSidebar={toggleSidebar} toggleReminders={toggleReminders} addMixPopup={() => addMixPopup(true)}/> :
-    
+
     <div className="App">
       <Header toggleSidebar={toggleSidebar} toggleReminders={toggleReminders}/>
       <main className="main-content">
@@ -95,7 +113,7 @@ function App() {
                    <div className="right-box-bottom">
                       <h2>Audio Files</h2>
                       <div className="content">
-                        <AudioFileCardBox audios={audios} addAudioPopup={() => addAudioPopup(true)}/>
+                        <AudioFileCardBox audios={audios} addAudioPopup={() => addAudioPopup(true)} editAudio={editAudio} />
                       </div>
                   </div>
                 </div>

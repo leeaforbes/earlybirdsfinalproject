@@ -17,9 +17,9 @@ const Sidebar = ({toggleSidebar}) => {
 		<div className='sidebar-modal'>
 
 			<SidebarIcon
-              style={{ width: '45px', height: '45px', stroke: "#ffffff" }}
-              onClick={() => toggleSidebar()}
-            />
+				style={{ width: '45px', height: '45px', stroke: "#ffffff" }}
+				onClick={() => toggleSidebar()}
+			/>
 			<div className='title'>Directory</div>
 
 			{/* this should also probably be an icon */}

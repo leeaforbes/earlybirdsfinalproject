@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './SetMenu.scss';
 
-const SetMenu = () => {
+const SetMenu = ({deleteSet}) => {
 
   const [showMenu, setShowMenu] = useState(false)
 
@@ -18,12 +18,20 @@ const SetMenu = () => {
 				{ showMenu ? 
 					<div className=''>
 						<div className='row'>
-							<div className='col justify-right border mx-2'>
+							<div
+								className='col justify-right border mx-2'
+								onClick={() => {
+									setShowMenu(false)
+								}}
+							>
 								Edit
 							</div>
 						</div>
 						<div className='row'>
-							<div className='col justify-right border mx-2'>
+							<div
+								className='col justify-right border mx-2'
+								onClick={deleteSet}
+							>
 								Delete
 							</div>
 						</div>

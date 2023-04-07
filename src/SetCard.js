@@ -2,7 +2,7 @@ import React from 'react';
 import './SetCard.scss';
 import SetMenu from './SetMenu';
 
-const SetCard = ({ set, loadSetView }) => {
+const SetCard = ({ set, loadSetView, editSet, deleteSet }) => {
   const { id, title, image, date} = set;
 
   return (
@@ -30,7 +30,7 @@ const SetCard = ({ set, loadSetView }) => {
             </div>
           </div>
           <div className='col-2 set-menu px-4'>
-            <SetMenu />
+            <SetMenu deleteSet={() => deleteSet(id)} />
           </div>
         </div>
       </div>

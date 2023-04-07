@@ -1,13 +1,5 @@
 const audios = [
     {
-      id: 0,
-      title: "Zero song",
-      artist: "Artist Zero",
-      genres: ["Nu Metal", "arab trap"],
-      length: "10:10",
-      bpm: 200
-    },
-    {
       id: 1,
       title: "Song A",
       artist: "Artist A",

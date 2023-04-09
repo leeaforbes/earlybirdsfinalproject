@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import sets from './data/sets.js';
 import './AddSet.scss'
 
 function AddSet({addSetPopup}) {
@@ -16,7 +17,9 @@ function AddSet({addSetPopup}) {
 	function onClickAddedMix(mix){
 		setAddedMixList(addedMixList.filter(m => m !== mix))
 	}
-
+	function onClickAddSet(){
+		sets.push({id: 0,title:"",image:"",date: "",tags:[],mixes:[]})
+	}
 	const searchFieldRef = useRef(null)
 	const [searchTerm, setSearchTerm] = useState("")
 
@@ -96,8 +99,8 @@ function AddSet({addSetPopup}) {
 
 				<AddedMixList addedMixList={addedMixList} onClickAddedMix={onClickAddedMix}/>
 				<div className='createbutton'>
-					{/* this needs to do something */}
-					<button>Create</button>
+					<button onClick={onClickAddSet()}>Create
+					</button>
 				</div>
 				
 				<br/>

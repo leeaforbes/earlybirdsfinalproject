@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import mixes from './data/mixes.js';
 import './AddMix.scss'
 
 function AddMix({addMixPopup}) {
@@ -12,6 +13,9 @@ function AddMix({addMixPopup}) {
 
 	function onClickAddedAudio(audio){
 		setAddedAudioList(addedAudioList.filter(a => a !== audio))
+	}
+	function onClickAddMix(){
+		mixes.push({id: 0,title:"",audioFileIds:[],description:""})
 	}
 
 	const searchFieldRef = useRef(null)
@@ -45,7 +49,7 @@ function AddMix({addMixPopup}) {
 				<AddedAudioList addedAudioList={addedAudioList} onClickAddedAudio={onClickAddedAudio}/>
 				<div className='createbutton'>
 					{/* this needs to do something */}
-					<button>Create</button>
+					<button onClick={onClickAddMix}>Create</button>
 				</div>
 				
 				<br/>

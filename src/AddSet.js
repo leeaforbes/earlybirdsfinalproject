@@ -17,16 +17,35 @@ function AddSet({addSetPopup}) {
 	function onClickAddedMix(mix){
 		setAddedMixList(addedMixList.filter(m => m !== mix))
 	}
-	function onClickAddSet(){
-		sets.push({id: 0,title:"",image:"",date: "",tags:[],mixes:[]})
+	function onClickAddSet(set){
+		sets.push(newSet)
 	}
 	const searchFieldRef = useRef(null)
 	const [searchTerm, setSearchTerm] = useState("")
-
 	function searchOnChange(){
 		setSearchTerm(searchFieldRef.current.value)
 	}
 
+	const [titleTerm, setTitleTerm] = useState("")
+	function titleOnChange(){
+		setTitleTerm(setNameFieldRef.current.value)
+
+		
+	}
+	const [tagTerm, setTags] = useState("")
+	function tagsOnChange(){
+		setTags(tagsFieldRef.current.value)
+
+		
+	}
+	// const [mixTerm, setMixes] = useState("")
+	// function tagsOnChange(){
+	// 	setMixes(tagsFieldRef.current.value)
+
+
+	// }
+	
+	var newSet = {id: sets.length,title:titleTerm,image:"",date: "",tags:tagTerm.split(", "),mixes:addedMixList}
 	/* https://stackoverflow.com/questions/37457128/react-open-file-browser-on-click-a-div */
 	/* https://developer.mozilla.org/en-US/docs/Web/API/File_API/Using_files_from_web_applications#Using_hidden_file_input_elements_using_the_click()_method */
 	const inputFile = useRef(null)
@@ -39,7 +58,6 @@ function AddSet({addSetPopup}) {
 		// console.log(inputFile.name)
 		// console.log(inputFile.current)
 	};
-
 	return (
 		<>
 		<div className='addset-modal'>
@@ -79,6 +97,8 @@ function AddSet({addSetPopup}) {
 								ref={setNameFieldRef}
 								type='text'
 								placeholder='Set Name'
+								onChange={titleOnChange}
+
 								>
 							</input>
 						</div>
@@ -89,6 +109,7 @@ function AddSet({addSetPopup}) {
 								ref={tagsFieldRef}
 								type='text'
 								placeholder='tags (comma separated list)'
+								onChange={tagsOnChange}
 								>
 							</input>
 						</div>
@@ -99,7 +120,7 @@ function AddSet({addSetPopup}) {
 
 				<AddedMixList addedMixList={addedMixList} onClickAddedMix={onClickAddedMix}/>
 				<div className='createbutton'>
-					<button onClick={onClickAddSet()}>Create
+					<button onClick={onClickAddSet}>Create
 					</button>
 				</div>
 				

@@ -16,6 +16,30 @@ import Reminders from './Reminders'
 import AddSet from './AddSet'
 import AddMix from './AddMix'
 import AddAudio from './AddAudio'
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getStorage, ref,uploadBytes } from "firebase/storage";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBywWphbldxSOwgw6Go7xUIjhJ8HT7faOs",
+  authDomain: "ebhci-2c579.firebaseapp.com",
+  databaseURL: "https://ebhci-2c579-default-rtdb.firebaseio.com",
+  projectId: "ebhci-2c579",
+  storageBucket: "ebhci-2c579.appspot.com",
+  messagingSenderId: "691674110269",
+  appId: "1:691674110269:web:01073e4fbf0de906fe8d54",
+  measurementId: "G-GNXLLS23SM"
+};
+
+// Initialize Firebase
+
+
+
 
 function App() {
 
@@ -27,6 +51,11 @@ function App() {
   const [showAddAudio, setShowAddAudio] = useState(false)
   const [showAddMix, setShowAddMix] = useState(false)
   const [showAddSet, setShowAddSet] = useState(false)
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const storage = getStorage(app);
+  // const mountainsRef = ref(storage, 'mountain.jpg');
+  // const mountainImagesRef = ref(storage, 'Desktop/mountain.jpg');
 
   function loadSetView(id) {
     setSetView(id)
@@ -51,6 +80,11 @@ function App() {
   function addAudioPopup(value){
     setShowAddAudio(value)
   }
+  const handleFileInputChange = (event) => {
+    const file = event.target.files[0];
+    const storageRef = ref(storage, file.name);
+    uploadBytes(storageRef, file);
+  }
 
   return (
     <>
@@ -68,6 +102,7 @@ function App() {
       <main className="main-content">
       <div className="container-fluid">
         <div className='row mb-3'>
+        <input type="file" onChange={handleFileInputChange} />
           <div className='col-6'>
             <div className="left-box">
             <h2>Sets</h2>

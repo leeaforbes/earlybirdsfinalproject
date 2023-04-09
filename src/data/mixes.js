@@ -19,7 +19,7 @@ const mixes = [
     },
     {
       id: 4,
-      title: "Mix 3",
+      title: "Mix 4",
       audioFileIds: [4, 5],
       description: "This is the second mix"
     }

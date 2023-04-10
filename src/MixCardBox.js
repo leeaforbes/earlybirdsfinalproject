@@ -4,13 +4,13 @@ import React from 'react';
 import MixCard from './mixCard';
 import './MixCardBox.scss';
 
-const MixCardBox = ({ mixes, addMixPopup }) => {
+const MixCardBox = ({ mixes, loadMixView, addMixPopup }) => {
   return (
     <div className="container-fluid mix-card-box">
       {mixes.map(mix => (
         <div className="row">
           <div className="col">
-            <MixCard mix={mix} />
+            <MixCard mix={mix} loadMixView={loadMixView} />
           </div>
         </div>
       ))}

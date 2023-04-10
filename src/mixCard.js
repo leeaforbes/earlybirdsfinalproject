@@ -6,7 +6,7 @@ import audios from './data/audios';
 import AudioFileCardBox from "./AudioFileCardBox"
 
 
-const MixCard = ({ mix }) => {
+const MixCard = ({ mix, loadMixView }) => {
   const [showMixInfo, setShowMixInfo] = useState(false);
   const filteredObjects = audios.filter(obj => mix.audioFileIds.includes(obj.id));
 
@@ -16,7 +16,9 @@ const MixCard = ({ mix }) => {
   }
 
   return (
-    <div className="mix-card">
+    <div className="mix-card"
+    onClick={() => loadMixView(mix.id)}
+    >
       <div className='container-fluid'>
         <div className='row'>
           <div className='col-11'>

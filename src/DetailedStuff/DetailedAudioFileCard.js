@@ -29,8 +29,8 @@ const AudioFileCard = ({ audioFile }) => {
                 <div className='col-2'>
                   <div className="audio-file-card__title">{audioFile.title}</div>
                   <div className="audio-file-card__artist">Artist: {audioFile.artist}</div>
-                  <div className="audio-file-card__genres">Genre: {audioFile.genres.join(', ')}</div>
-                  <div className="audio-file-card__genres">Tags: {audioFile.tags}</div>
+                  <div className="audio-file-card__tags">Genre: {audioFile.tags.join(', ')}</div>
+                  <div className="audio-file-card__tags">Tags: {audioFile.tags}</div>
                   
                   <div className="audio-file-card__length">Length: {audioFile.length}</div>
                 </div>

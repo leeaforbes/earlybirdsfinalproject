@@ -4,7 +4,11 @@
   max-height: 100%;
   .main-content {
     height: 100%; // subtract the height of the header
-    display: flex;
+    max-height: 100%;
+
+    .container-fluid { 
+      height: 100%;
+    }
 
     .left-box {
       background-color: rgba(19, 18, 18, 0.5);
@@ -26,10 +30,8 @@
     .right-box-top {
       background-color: rgba(19, 18, 18, 0.5);
       border-radius: 10px;
-      padding: 0px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
+      max-height:100%;
+      overflow: hidden;
 
       h2 {
         margin-top: 0;
@@ -38,14 +40,11 @@
     }
 
     .right-box-bottom {
-      grid-column: 2;
-      grid-row: 2;
       background-color: rgba(19, 18, 18, 0.5);
       border-radius: 10px;
       padding: 0px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
+      max-height:100%;
+      overflow: hidden;
 
       h2 {
         margin-top: 0;
@@ -55,9 +54,17 @@
   }
 }
 
+.right-row {
+  height: 50%;
+  max-height: 50%;
+}
+
 .content {
-  max-width: 100%;
-  overflow-y: auto;
+  max-height: 100%;
+}
+
+.col {
+  max-height: 100%;
 }
 
 h2 {
@@ -68,10 +75,6 @@ h2 {
   padding-bottom: 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-}
-
-.right-row {
-  max-height: 50%;
 }
 
 .add {

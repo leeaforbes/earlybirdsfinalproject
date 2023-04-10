@@ -10,7 +10,7 @@ const sets = [
       image: image4,
       date: "August 2022",
       tags: ["house", "techno", "disco"],
-      mixes: [1, 2, 3],
+      mixIds: [1, 2, 3],
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ const sets = [
       image: image3,
       date: "December 2022",
       tags: ["downtempo", "ambient"],
-      mixes: [4, 5],
+      mixIds: [1, 3],
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ const sets = [
       image: image1,
       date: "December 2022",
       tags: ["downtempo", "ambient"],
-      mixes: [4, 5],
+      mixIds: [4, 2],
     },
     {
       id: 4,
@@ -34,7 +34,7 @@ const sets = [
       image: image2,
       date: "December 2022",
       tags: ["downtempo", "ambient"],
-      mixes: [4, 5],
+      mixIds: [1, 3, 4],
     }
     // additional sets...
   ];

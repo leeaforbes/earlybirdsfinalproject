@@ -19,7 +19,8 @@ import AddAudio from './AddAudio'
 
 function App() {
 
-  const [setView, setSetView] = useState(-1)
+  const [selectedSet, setSelectedSet] = useState(null);
+  const [selectedMix, setSelectedMix] = useState(null);
 
   const [showSidebar, setShowSidebar] = useState(false)
   const [showReminders, setShowReminders] = useState(false)
@@ -29,7 +30,23 @@ function App() {
   const [showAddSet, setShowAddSet] = useState(false)
 
   function loadSetView(id) {
-    setSetView(id)
+    if (selectedSet === id) {
+      setSelectedSet(0);
+      console.log("no specified set");
+    } else {
+      setSelectedSet(id);
+      console.log("showing mixes for set: %u", id);
+    }
+  }
+
+  function loadMixView(id) {
+    if (selectedMix === id) {
+      setSelectedMix(0);
+      console.log("no specified mix");
+    } else {
+      setSelectedMix(id);
+      console.log("showing files for mix: ", id);
+    }
   }
 
   function toggleSidebar() {
@@ -52,6 +69,14 @@ function App() {
     setShowAddAudio(value)
   }
 
+  const setSelected = sets.find((set) => set.id === selectedSet);
+  const mixSelected = mixes.find((mix) => mix.id === selectedMix);
+
+  const mixesToShow = selectedSet ? mixes.filter(obj => setSelected.mixIds.includes(obj.id)) : mixes;
+  const audiosToShow = selectedMix ? audios.filter(obj => mixSelected.audioFileIds.includes(obj.id)) : audios;
+
+  const mixAppend = selectedSet ? setSelected.title : "" ;
+
   return (
     <>
     
@@ -60,8 +85,6 @@ function App() {
     { showAddSet ? <AddSet addSetPopup={() => addSetPopup(false)} /> : null}
     { showAddMix ? <AddMix addMixPopup={() => addMixPopup(false)} /> : null}
     { showAddAudio ? <AddAudio addAudioPopup={() => addAudioPopup(false)} /> : null}
-
-    { (setView !== -1) ? <DetailedSetView id={setView} backButtonOnClick={() => loadSetView(-1)} toggleSidebar={toggleSidebar} toggleReminders={toggleReminders} addMixPopup={() => addMixPopup(true)}/> :
     
     <div className="App">
       <Header toggleSidebar={toggleSidebar} toggleReminders={toggleReminders}/>
@@ -79,23 +102,23 @@ function App() {
             </div>
            </div>
            <div className='col-6'>
-             <div className='container-fluid'>
-               <div className='row right-row mb-4 h-50'>
-                 <div className='col'>
-                  <div className="right-box-top">
-                    <h2>Mixes</h2>
+             <div className='container-fluid right-box'>
+               <div className='row right-row h-50'>
+                 <div className='col pb-3'>
+                  <div className="container-fluid right-box-top p-0">
+                    <h2>Mixes { selectedSet ? " - " + setSelected.title : null}</h2>
                     <div className="content">
-                      <MixCardBox mixes={mixes} addMixPopup={() => addMixPopup(true)}/>
+                      <MixCardBox mixes={mixesToShow} loadMixView={loadMixView} addMixPopup={() => addMixPopup(true)}/>
                     </div>
                   </div>
                  </div>
                </div>
                <div className='row right-row h-50'>
                 <div className='col'>
-                   <div className="right-box-bottom">
-                      <h2>Audio Files</h2>
-                      <div className="content">
-                        <AudioFileCardBox audios={audios} addAudioPopup={() => addAudioPopup(true)}/>
+                   <div className="container-fluid right-box-bottom">
+                      <h2>Audio Files { selectedMix ? " - " + mixSelected.title : null}</h2>
+                      <div className="content scroll pb-5">
+                        <AudioFileCardBox audios={audiosToShow} addAudioPopup={() => addAudioPopup(true)}/>
                       </div>
                   </div>
                 </div>
@@ -110,7 +133,6 @@ function App() {
 
       </main>
     </div>
-  }
   </>
   );
 }

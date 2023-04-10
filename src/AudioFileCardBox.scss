@@ -1,4 +1,9 @@
 @import "node_modules/bootstrap/scss/bootstrap.scss";
   .audio-file-card-box{
-    
+    max-height: 100%;
+  }
+
+  .scroll {
+    max-height: 100%;
+    overflow: scroll;
   }

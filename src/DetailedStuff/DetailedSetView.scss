@@ -16,8 +16,8 @@
 
     .right-box-top {
       background-color: rgba(19, 18, 18, 0.5);
-      border-radius: 0px;
-      padding: 0px;
+      border-radius: 10px;
+      margin-bottom: 20px;
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -147,7 +147,7 @@ h5{
   margin-bottom: 0px;
 }
 
-.audio-file-card__genres {
+.audio-file-card__tags {
   font-size: 14px;
   color: white;
   margin-bottom: 0px;

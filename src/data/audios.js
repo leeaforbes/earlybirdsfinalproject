@@ -1,37 +1,36 @@
 const audios = [
-    {
-      id: 1,
-      title: "Song A",
-      artist: "Artist A",
-      genres: ["Pop", "Electronic"],
-      length: "3:30",
-      bpm: 120
-    },
-    {
-      id: 2,
-      title: "Song B",
-      artist: "Artist B",
-      genres: ["Hip-Hop", "R&B"],
-      length: "2:45",
-      bpm: 95
-    },
-    {
-      id: 3,
-      title: "Song C",
-      artist: "Artist C",
-      genres: ["Punk", "Metal"],
-      length: "3:10",
-      bpm: 120
-    },
-    {
-      id: 4,
-      title: "Song D",
-      artist: "Artist D",
-      genres: ["Experimental", "Electronic"],
-      length: "4:15",
-      bpm: 95
-    }
-    // more audio file objects...
-  ];
+  {
+    id: 1,
+    title: "Bittersweet Symphony",
+    artist: "The Verve",
+    tags: ["Rock"],
+    length: "5:58",
+    bpm: 84
+  },
+  {
+    id: 2,
+    title: "Sicko Mode",
+    artist: "Travis Scott feat. Drake",
+    tags: ["Hip-Hop", "Trap"],
+    length: "5:13",
+    bpm: 155
+  },
+  {
+    id: 3,
+    title: "Bohemian Rhapsody",
+    artist: "Queen",
+    tags: ["Rock"],
+    length: "5:55",
+    bpm: 72
+  },
+  {
+    id: 4,
+    title: "Rhiannon",
+    artist: "Fleetwood Mac",
+    tags: ["Rock", "Soft Rock", "70s Rock"],
+    length: "3:07",
+    bpm: 133
+  }
+];
   
   export default audios;

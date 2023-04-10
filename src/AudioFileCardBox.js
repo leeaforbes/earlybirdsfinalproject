@@ -7,7 +7,7 @@ import './AudioFileCardBox.scss';
 const AudioFileCardBox = ({ audios, addAudioPopup }) => {
   return (
     <div className="audio-file-card-box">
-      <div className='container-fluid'>
+      <div className='container-fluid scroll'>
       {audios.map(audio => (   
                   <AudioFileCard audioFile={audio} /> 
       ))}

@@ -2,12 +2,13 @@ import { useRef, useState } from 'react';
 import "./Sidebar.scss"
 import { ReactComponent as SidebarIcon } from './data/images/list.svg';
 
-const Sidebar = ({toggleSidebar}) => {
+const Sidebar = ({toggleSidebar, sets, mixes, audios}) => {
 	const searchFieldRef = useRef(null)
 	const [searchTerm, setSearchTerm] = useState("")
-	const [setList] = useState(["Dan's Bday", "Claudia's Baby Shower", "EMO NITE", "Festival of Lights"])
-	const [mixList] = useState(["Rhiannon x FEELWITCHU", "Fever - Peggy Lee House Remix", "Krusty Crab Pizza x Romanticist", "god i love edm", "red hot bars", "soul-ripping riffs"])
-	const [audioList] = useState(["rhiannon.mp4", "feelwu.mp4", "drumzzz.mp4", "krabpizza.mp4", "untitled4.mp4", "rhiannon2.mp4"])
+	
+	const [setList] = useState(sets)
+	const [mixList] = useState(mixes)
+	const [audioList] = useState(audios)
 
 	function searchOnChange(){
 		setSearchTerm(searchFieldRef.current.value)
@@ -53,13 +54,13 @@ function CreateList({listName, list, searchTerm}) {
 
 	var outputList = []
 	list.forEach(elementName => {
-		if(elementName.toLowerCase().startsWith(searchTerm)){
+		if(elementName.title.toLowerCase().startsWith(searchTerm)){
 			outputList.push(
 				<div
 					className=""
-					key={elementName}
+					key={elementName.title}
 				>
-					{"┗ " + elementName}
+					{"┗ " + elementName.title}
 				</div>
 			)
 		}

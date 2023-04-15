@@ -8,7 +8,6 @@ import sets_raw from './data/sets.js';
 import './App.scss';
 import MixCardBox from './MixCardBox';
 import SetCardBox from './SetCardBox';
-import DetailedSetView from './DetailedStuff/DetailedSetView';
 
 import Sidebar from './Sidebar';
 import Reminders from './Reminders'
@@ -78,7 +77,7 @@ function App() {
   const mixesToShow = selectedSet ? mixes.filter(obj => setSelected.mixIds.includes(obj.id)) : mixes;
   const audiosToShow = selectedMix ? audios.filter(obj => mixSelected.audioFileIds.includes(obj.id)) : audios;
 
-  const mixAppend = selectedSet ? setSelected.title : "" ;
+  // const mixAppend = selectedSet ? setSelected.title : "" ;
   function editAudio(newAudio){
     // console.log("attempting to edit audio", newAudio)
 
@@ -119,7 +118,7 @@ function App() {
   return (
     <>
     
-    { showSidebar ? <Sidebar toggleSidebar={toggleSidebar}/> : null}
+    { showSidebar ? <Sidebar toggleSidebar={toggleSidebar} sets={sets} mixes={mixes} audios={audios} /> : null}
     { showReminders ? <Reminders /> : null}
     { showAddSet ? <AddSet addSetPopup={() => addSetPopup(false)} /> : null}
     { showAddMix ? <AddMix addMixPopup={() => addMixPopup(false)} /> : null}

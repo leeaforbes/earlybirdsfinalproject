@@ -15,6 +15,7 @@ import Reminders from './Reminders'
 import AddSet from './AddSet'
 import AddMix from './AddMix'
 import AddAudio from './AddAudio'
+import HelpScreen from './HelpScreen';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
   const [showAddAudio, setShowAddAudio] = useState(false)
   const [showAddMix, setShowAddMix] = useState(false)
   const [showAddSet, setShowAddSet] = useState(false)
+  const [showHelpMenu, setShowHelpMenu] = useState(false)
 
   const [audios, setAudios] = useState(audios_raw)
   const [sets, setSets] = useState(sets_raw)
@@ -57,6 +59,10 @@ function App() {
   
   function toggleReminders(){
     setShowReminders(!showReminders)
+  }
+  
+  function toggleHelp(){
+    setShowHelpMenu(!showHelpMenu)
   }
   
   function addSetPopup(value){
@@ -117,15 +123,15 @@ function App() {
 
   return (
     <>
-    
     { showSidebar ? <Sidebar toggleSidebar={toggleSidebar} sets={sets} mixes={mixes} audios={audios} /> : null}
     { showReminders ? <Reminders /> : null}
     { showAddSet ? <AddSet addSetPopup={() => addSetPopup(false)} /> : null}
     { showAddMix ? <AddMix addMixPopup={() => addMixPopup(false)} /> : null}
     { showAddAudio ? <AddAudio addAudioPopup={() => addAudioPopup(false)} /> : null}
+    { showHelpMenu ? <HelpScreen></HelpScreen> : null}
 
     <div className="App">
-      <Header toggleSidebar={toggleSidebar} toggleReminders={toggleReminders}/>
+      <Header toggleSidebar={toggleSidebar} toggleReminders={toggleReminders} toggleHelp={toggleHelp} />
       <main className="main-content">
       <div className="container-fluid">
         <div className='row mb-3'>

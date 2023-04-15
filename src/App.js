@@ -19,7 +19,7 @@ import HelpScreen from './HelpScreen';
 
 function App() {
 
-  const [selectedSet, setSelectedSet] = useState(null);
+  const [selectedSet, setSelectedSet] = useState(-1);
   const [selectedMix, setSelectedMix] = useState(null);
 
   const [showSidebar, setShowSidebar] = useState(false)
@@ -35,7 +35,7 @@ function App() {
 
   function loadSetView(id) {
     if (selectedSet === id) {
-      setSelectedSet(0);
+      setSelectedSet(-1);
       console.log("no specified set");
     } else {
       setSelectedSet(id);
@@ -80,7 +80,7 @@ function App() {
   const setSelected = sets.find((set) => set.id === selectedSet);
   const mixSelected = mixes.find((mix) => mix.id === selectedMix);
 
-  const mixesToShow = selectedSet ? mixes.filter(obj => setSelected.mixIds.includes(obj.id)) : mixes;
+  const mixesToShow = (selectedSet != -1) ? mixes.filter(obj => setSelected.mixIds.includes(obj.id)) : mixes;
   const audiosToShow = selectedMix ? audios.filter(obj => mixSelected.audioFileIds.includes(obj.id)) : audios;
 
   // const mixAppend = selectedSet ? setSelected.title : "" ;
@@ -150,7 +150,7 @@ function App() {
                <div className='row right-row h-50'>
                  <div className='col h-100 pb-3'>
                   <div className="container-fluid right-box-top p-0">
-                    <h2>Mixes { selectedSet ? " - " + setSelected.title : null}</h2>
+                    <h2>Mixes { (selectedSet != -1) ? " - " + setSelected.title : null}</h2>
                     <div className="content">
                       <MixCardBox mixes={mixesToShow} loadMixView={loadMixView} addMixPopup={() => addMixPopup(true)}/>
                     </div>

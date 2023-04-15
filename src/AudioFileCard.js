@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './AudioFileCard.scss';
 import { ReactComponent as FileIcon } from "./data/images/file_icon.svg";
 import { ReactComponent as EditIcon } from "./data/images/pencil-square.svg";
@@ -9,18 +9,26 @@ import { ReactComponent as UploadIcon } from "./data/images/folder-upload.svg";
 import waveform from './data/images/waveform.png';
 import pause from './data/images/pause.png';
 
-const AudioFileCard = ({ audioFile }) => {
-    const [showPlayAudio, setShowPlayAudio] = useState(false);
-    function handleDropdownClick() {
-      setIsEditMode(false);
-      setShowPlayAudio(!showPlayAudio);
-    }
+const AudioFileCard = ({ audioFile, editAudio, deleteAudio }) => {
 
-    const [isEditMode, setIsEditMode] = useState(false);
-    function toggleEditMode() {
-      setShowPlayAudio(false);
-      setIsEditMode(!isEditMode);
-    }
+	const editFields = {
+		titleField: useRef(null),
+		artistField: useRef(null),
+		genreField: useRef(null),
+		lengthField: useRef(null)
+	}
+
+	const [showPlayAudio, setShowPlayAudio] = useState(false);
+	function handleDropdownClick() {
+		setIsEditMode(false);
+		setShowPlayAudio(!showPlayAudio);
+	}
+
+	const [isEditMode, setIsEditMode] = useState(false);
+	function toggleEditMode() {
+		setShowPlayAudio(false);
+		setIsEditMode(!isEditMode);
+	}
 
   return (
       <div className='row'>
@@ -34,10 +42,10 @@ const AudioFileCard = ({ audioFile }) => {
                 <div className='col'>
                 {isEditMode ? (
                     <>
-                      <input type="text" defaultValue={audioFile.title} />
-                      <input type="text" defaultValue={audioFile.artist} />
-                      <input type="text" defaultValue={audioFile.tags.join(', ')} />
-                      <input type="text" pattern="[0-9]{2}:[0-9]{2}" defaultValue={audioFile.length} />
+                      <input ref={editFields.titleField} type="text" defaultValue={audioFile.title} />
+                      <input ref={editFields.artistField} type="text" defaultValue={audioFile.artist} />
+                      <input ref={editFields.genreField} type="text" defaultValue={audioFile.genres.join(', ')} />
+                      <input ref={editFields.lengthField} type="text" pattern="[0-9]{2}:[0-9]{2}" defaultValue={audioFile.length} />
                     </>
                   ) : (
                     <>
@@ -50,14 +58,26 @@ const AudioFileCard = ({ audioFile }) => {
                 </div>
 
                 { showPlayAudio && <Listen /> }
-                {isEditMode && <EditButtons />}
+                {isEditMode && <EditButtons deleteAudio={() => deleteAudio(audioFile.id)} />}
                 <div className='col-1'>
                   <div className='flex-container h-100'>
                     <div className='row h-50'>
                       <div className='col h-100'>
                         <EditIcon 
                           style={{ width: '100%', height: '100%' }}
-                          onClick={toggleEditMode}
+                          onClick={() => {
+														toggleEditMode()
+														if(isEditMode){
+															editAudio({
+																id: audioFile.id,
+																title: editFields.titleField.current.value,
+																artist: editFields.artistField.current.value,
+																genres: (editFields.genreField.current.value).split(','),
+																length: editFields.lengthField.current.value,
+																bpm: audioFile.bpm
+															})
+														}
+													}}
                         />
                       </div>
                     </div>
@@ -97,7 +117,7 @@ function Listen() {
   </div>;
 }
 
-function EditButtons() {
+function EditButtons({deleteAudio}) {
   return <div className='col-1'>
                   <div className='flex-container h-100'>
                     <div className='row h-50'>
@@ -111,6 +131,7 @@ function EditButtons() {
                       <div className='col h-100'>
                       <TrashIcon 
                         style={{ width: '100%', height: '100%' }}
+                        onClick={deleteAudio}
                       />
                       </div>
                     </div>

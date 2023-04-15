@@ -5,7 +5,7 @@ import image4 from "./images/summer.png";
 
 const sets = [
     {
-      id: 1,
+      id: 0,
       title: "Summer Vibes",
       image: image4,
       date: "August 2022",
@@ -13,7 +13,7 @@ const sets = [
       mixIds: [1, 2, 3],
     },
     {
-      id: 2,
+      id: 1,
       title: "Winter Chill",
       image: image3,
       date: "December 2022",
@@ -21,7 +21,7 @@ const sets = [
       mixIds: [1, 3],
     },
     {
-      id: 3,
+      id: 2,
       title: "Dan's Bday",
       image: image1,
       date: "December 2022",
@@ -29,7 +29,7 @@ const sets = [
       mixIds: [4, 2],
     },
     {
-      id: 4,
+      id: 3,
       title: "Claudia's Baby Shower",
       image: image2,
       date: "December 2022",

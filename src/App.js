@@ -2,9 +2,9 @@ import { useState } from 'react';
 import React from 'react';
 import Header from './header';
 import  AudioFileCardBox from './AudioFileCardBox.js';
-import audios from './data/audios.js';
+import audios_raw from './data/audios.js';
 import mixes from './data/mixes.js';
-import sets from './data/sets.js';
+import sets_raw from './data/sets.js';
 import './App.scss';
 import MixCardBox from './MixCardBox';
 import SetCardBox from './SetCardBox';
@@ -28,6 +28,9 @@ function App() {
   const [showAddAudio, setShowAddAudio] = useState(false)
   const [showAddMix, setShowAddMix] = useState(false)
   const [showAddSet, setShowAddSet] = useState(false)
+
+  const [audios, setAudios] = useState(audios_raw)
+  const [sets, setSets] = useState(sets_raw)
 
   function loadSetView(id) {
     if (selectedSet === id) {
@@ -76,6 +79,42 @@ function App() {
   const audiosToShow = selectedMix ? audios.filter(obj => mixSelected.audioFileIds.includes(obj.id)) : audios;
 
   const mixAppend = selectedSet ? setSelected.title : "" ;
+  function editAudio(newAudio){
+    // console.log("attempting to edit audio", newAudio)
+
+    const audiosCopy = audios.map((a) => {
+      if(a.id === newAudio.id){
+        return newAudio
+      } else {
+        return a
+      }
+    })
+
+    setAudios(audiosCopy)
+  }
+
+  function deleteAudio(audioId){
+    setAudios(audios.filter(a => a.id !== audioId))
+  }
+
+  function editSet(newSet){
+    // console.log("attempting to edit set", newSet)
+    
+    const setsCopy = sets.map((s) => {
+      if(s.id === newSet.id){
+        return newSet
+      } else {
+        return s
+      }
+    })
+    
+    setSets(setsCopy)
+  }
+  
+  function deleteSet(setId){
+    // console.log("attempting to delete set", setId)
+    setSets(sets.filter(s => s.id !== setId))
+  }
 
   return (
     <>
@@ -85,7 +124,7 @@ function App() {
     { showAddSet ? <AddSet addSetPopup={() => addSetPopup(false)} /> : null}
     { showAddMix ? <AddMix addMixPopup={() => addMixPopup(false)} /> : null}
     { showAddAudio ? <AddAudio addAudioPopup={() => addAudioPopup(false)} /> : null}
-    
+
     <div className="App">
       <Header toggleSidebar={toggleSidebar} toggleReminders={toggleReminders}/>
       <main className="main-content">
@@ -95,7 +134,7 @@ function App() {
             <div className="left-box">
             <h2>Sets</h2>
               <div className="content">
-                <SetCardBox sets={sets} loadSetView={loadSetView} addSetPopup={() => addSetPopup(true)} />
+                <SetCardBox sets={sets} loadSetView={loadSetView} addSetPopup={() => addSetPopup(true)} editSet={editSet} deleteSet={deleteSet} />
               </div>
     
 
@@ -118,7 +157,7 @@ function App() {
                    <div className="container-fluid right-box-bottom">
                       <h2>Audio Files { selectedMix ? " - " + mixSelected.title : null}</h2>
                       <div className="content pb-5">
-                        <AudioFileCardBox audios={audiosToShow} addAudioPopup={() => addAudioPopup(true)}/>
+                        <AudioFileCardBox audios={audiosToShow} addAudioPopup={() => addAudioPopup(true)} editAudio={editAudio} deleteAudio={deleteAudio}/>
                       </div>
                   </div>
                 </div>

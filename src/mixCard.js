@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './mixCard.scss';
 import { ReactComponent as DropdownIcon } from "./data/images/dropdownIcon.svg";
 import audios from './data/audios';
@@ -34,9 +33,10 @@ const MixCard = ({ mix, loadMixView }) => {
   );
 };
 
-MixCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  audioFileIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
+// not used anymore
+// MixCard.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   audioFileIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+// };
 
 export default MixCard;

@@ -8,7 +8,7 @@ const MixCardBox = ({ mixes, loadMixView, addMixPopup }) => {
   return (
     <div className="container-fluid mix-card-box">
       {mixes.map(mix => (
-        <div className="row">
+        <div className="row" key={mix.title + mix.id}>
           <div className="col">
             <MixCard mix={mix} loadMixView={loadMixView} />
           </div>

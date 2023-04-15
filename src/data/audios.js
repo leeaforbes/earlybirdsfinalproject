@@ -30,7 +30,39 @@ const audios = [
     tags: ["Rock", "Soft Rock", "70s Rock"],
     length: "3:07",
     bpm: 133
-  }
+  },
+  {
+    id: 5,
+    title: "Stairway to Heaven",
+    artist: "Led Zeppelin",
+    tags: ["Rock", "Classic Rock"],
+    length: "8:02",
+    bpm: 63
+    },
+    {
+    id: 6,
+    title: "Thriller",
+    artist: "Michael Jackson",
+    tags: ["Pop", "Funk", "R&B"],
+    length: "5:58",
+    bpm: 118
+    },
+    {
+    id: 7,
+    title: "Purple Rain",
+    artist: "Prince",
+    tags: ["Pop", "Rock"],
+    length: "8:41",
+    bpm: 65
+    },
+    {
+    id: 8,
+    title: "Shape of You",
+    artist: "Ed Sheeran",
+    tags: ["Pop", "Dancehall", "Tropical House"],
+    length: "3:54",
+    bpm: 96
+    }
 ];
   
   export default audios;

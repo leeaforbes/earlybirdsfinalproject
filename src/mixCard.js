@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import './mixCard.scss';
 import { ReactComponent as DropdownIcon } from "./data/images/dropdownIcon.svg";
 import audios from './data/audios';
-import AudioFileCardBox from "./AudioFileCardBox"
+import AudioFileCardBox from "./AudioFileCardBox";
+import SetMenu from './SetMenu';
 
 
 const MixCard = ({ mix, loadMixView }) => {
@@ -21,18 +22,13 @@ const MixCard = ({ mix, loadMixView }) => {
     >
       <div className='container-fluid'>
         <div className='row'>
-          <div className='col-11'>
+          <div className='col-10'>
             <div className="mix-card__title">{mix.title}</div>
           </div>
-          <div className='col-1'>
-            <DropdownIcon onClick={handleDropdownClick}/>
+          <div className='col-2 set-menu px-4'>
+            <SetMenu />
           </div>
         </div>
-        { showMixInfo && <div className='row' >
-          <div className="col">
-             <AudioFileCardBox audios={filteredObjects} /> 
-          </div>
-        </div>}
       </div>
     </div>
   );

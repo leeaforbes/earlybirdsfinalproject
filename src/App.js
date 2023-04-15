@@ -104,7 +104,7 @@ function App() {
            <div className='col-6'>
              <div className='container-fluid right-box'>
                <div className='row right-row h-50'>
-                 <div className='col pb-3'>
+                 <div className='col h-100 pb-3'>
                   <div className="container-fluid right-box-top p-0">
                     <h2>Mixes { selectedSet ? " - " + setSelected.title : null}</h2>
                     <div className="content">
@@ -114,10 +114,10 @@ function App() {
                  </div>
                </div>
                <div className='row right-row h-50'>
-                <div className='col'>
+                <div className='col h-100'>
                    <div className="container-fluid right-box-bottom">
                       <h2>Audio Files { selectedMix ? " - " + mixSelected.title : null}</h2>
-                      <div className="content scroll pb-5">
+                      <div className="content pb-5">
                         <AudioFileCardBox audios={audiosToShow} addAudioPopup={() => addAudioPopup(true)}/>
                       </div>
                   </div>

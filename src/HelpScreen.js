@@ -1,7 +1,7 @@
 import "./HelpScreen.scss"
 import helpscreen from './data/images/helpscreen.png';
 
-const HelpScreen = ({}) => {
+const HelpScreen = () => {
 
 	return (
 		<div className='help-modal'>

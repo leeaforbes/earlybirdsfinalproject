@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './header';
 import  AudioFileCardBox from './AudioFileCardBox.js';
 import audios_raw from './data/audios.js';
-import mixes from './data/mixes.js';
+import mixes_raw from './data/mixes.js';
 import sets_raw from './data/sets.js';
 import './App.scss';
 import MixCardBox from './MixCardBox';
@@ -31,6 +31,7 @@ function App() {
   const [showHelpMenu, setShowHelpMenu] = useState(false)
 
   const [audios, setAudios] = useState(audios_raw)
+  const [mixes, setMixes] = useState(mixes_raw)
   const [sets, setSets] = useState(sets_raw)
 
   function loadSetView(id) {
@@ -80,7 +81,7 @@ function App() {
   const setSelected = sets.find((set) => set.id === selectedSet);
   const mixSelected = mixes.find((mix) => mix.id === selectedMix);
 
-  const mixesToShow = (selectedSet != -1) ? mixes.filter(obj => setSelected.mixIds.includes(obj.id)) : mixes;
+  const mixesToShow = (selectedSet !== -1) ? mixes.filter(obj => setSelected.mixIds.includes(obj.id)) : mixes;
   const audiosToShow = selectedMix ? audios.filter(obj => mixSelected.audioFileIds.includes(obj.id)) : audios;
 
   // const mixAppend = selectedSet ? setSelected.title : "" ;
@@ -100,6 +101,25 @@ function App() {
 
   function deleteAudio(audioId){
     setAudios(audios.filter(a => a.id !== audioId))
+  }
+
+  function editMix(newMix){
+    // console.log("attempting to edit mix", newMix)
+    
+    const mixesCopy = mixes.map((m) => {
+      if(m.id === newMix.id){
+        return newMix
+      } else {
+        return m
+      }
+    })
+    
+    setMixes(mixesCopy)
+  }
+  
+  function deleteMix(mixId){
+    // console.log("attempting to delete mix", mixId)
+    setMixes(mixes.filter(m => m.id !== mixId))
   }
 
   function editSet(newSet){
@@ -150,9 +170,9 @@ function App() {
                <div className='row right-row h-50'>
                  <div className='col h-100 pb-3'>
                   <div className="container-fluid right-box-top p-0">
-                    <h2>Mixes { (selectedSet != -1) ? " - " + setSelected.title : null}</h2>
+                    <h2>Mixes { (selectedSet !== -1) ? " - " + setSelected.title : null}</h2>
                     <div className="content">
-                      <MixCardBox mixes={mixesToShow} loadMixView={loadMixView} addMixPopup={() => addMixPopup(true)}/>
+                      <MixCardBox mixes={mixesToShow} loadMixView={loadMixView} addMixPopup={() => addMixPopup(true)} editMix={editMix} deleteMix={deleteMix} />
                     </div>
                   </div>
                  </div>

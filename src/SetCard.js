@@ -9,7 +9,7 @@ const SetCard = ({ set, loadSetView, editSet, deleteSet, selectedSet , addMixToS
 
   const [setEditMode, setSetEditMode] = useState(false)
 
-  const editFields = {
+	const editFields = {
 		titleField: useRef(null),
 		dateField: useRef(null),
 		tagsField: useRef(null)
@@ -80,14 +80,17 @@ const SetCard = ({ set, loadSetView, editSet, deleteSet, selectedSet , addMixToS
                   <input ref={editFields.dateField} type='text' defaultValue={date} />
                   <input ref={editFields.tagsField} type='text' defaultValue={set.tags.join(', ')} />
                   <button
-                    onClick={() => editSet({
-                      id: id,
-                      title: editFields.titleField.current.value,
-                      image: set.image,
-                      date: editFields.dateField.current.value,
-                      tags: (editFields.tagsField.current.value).split(','),
-                      mixes: set.mixes
-                    })}
+                    onClick={() => {
+                      editSet({
+                        id: id,
+                        title: editFields.titleField.current.value,
+                        image: set.image,
+                        date: editFields.dateField.current.value,
+                        tags: (editFields.tagsField.current.value).split(','),
+                        mixes: set.mixes
+                      })
+                      setSetEditMode(false)
+                    }}
                   >Done</button>
                 </>
               : <>

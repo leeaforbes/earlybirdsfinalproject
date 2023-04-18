@@ -4,7 +4,7 @@ import { ReactComponent as ReminderIcon } from './data/images/reminder.svg';
 import { ReactComponent as InfoIcon } from './data/images/info.svg';
 import { ReactComponent as SidebarIcon } from './data/images/list.svg';
 
-function Header({toggleSidebar, toggleReminders}) {
+function Header({toggleSidebar, toggleReminders, toggleHelp}) {
   return (
     <div className="header">
       <div className='header-container fluid-container'>
@@ -15,7 +15,10 @@ function Header({toggleSidebar, toggleReminders}) {
                 style={{ width: '45px', height: '45px' }}
                 onClick={() => toggleReminders()}
               />
-              <InfoIcon style={{ width: '45px', height: '45px' }}/>
+              <InfoIcon
+                style={{ width: '45px', height: '45px' }}
+                onClick={() => toggleHelp()}
+              />
             </div>
           </div>
           <div className='col-9'>

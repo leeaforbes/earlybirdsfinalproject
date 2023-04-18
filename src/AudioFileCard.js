@@ -14,7 +14,7 @@ const AudioFileCard = ({ audioFile, editAudio, deleteAudio}) => {
 	const editFields = {
 		titleField: useRef(null),
 		artistField: useRef(null),
-		genreField: useRef(null),
+		tagsField: useRef(null),
 		lengthField: useRef(null)
 	}
 
@@ -52,7 +52,7 @@ const AudioFileCard = ({ audioFile, editAudio, deleteAudio}) => {
                     <>
                       <input ref={editFields.titleField} type="text" defaultValue={audioFile.title} />
                       <input ref={editFields.artistField} type="text" defaultValue={audioFile.artist} />
-                      <input ref={editFields.genreField} type="text" defaultValue={audioFile.genres.join(', ')} />
+                      <input ref={editFields.tagsField} type="text" defaultValue={audioFile.tags.join(', ')} />
                       <input ref={editFields.lengthField} type="text" pattern="[0-9]{2}:[0-9]{2}" defaultValue={audioFile.length} />
                     </>
                   ) : (
@@ -80,7 +80,7 @@ const AudioFileCard = ({ audioFile, editAudio, deleteAudio}) => {
 																id: audioFile.id,
 																title: editFields.titleField.current.value,
 																artist: editFields.artistField.current.value,
-																genres: (editFields.genreField.current.value).split(','),
+																tags: (editFields.tagsField.current.value).split(','),
 																length: editFields.lengthField.current.value,
 																bpm: audioFile.bpm
 															})

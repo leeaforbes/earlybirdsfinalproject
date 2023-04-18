@@ -2,10 +2,10 @@
 
 .App {
   max-height: 100vh;
+  overflow: auto;
   .main-content {
     height: 100%; // subtract the height of the header
     max-height: 100%;
-    overflow: hidden;
 
     .container-fluid { 
       height: 100%;

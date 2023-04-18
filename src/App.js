@@ -3,7 +3,7 @@ import React from 'react';
 import Header from './header';
 import  AudioFileCardBox from './AudioFileCardBox.js';
 import audios_raw from './data/audios.js';
-import mixes from './data/mixes.js';
+import mixes_raw from './data/mixes.js';
 import sets_raw from './data/sets.js';
 import './App.scss';
 import MixCardBox from './MixCardBox';
@@ -30,11 +30,12 @@ function App() {
   const [showAddSet, setShowAddSet] = useState(false)
 
   const [audios, setAudios] = useState(audios_raw)
+  const [mixes, setMixes] = useState(mixes_raw)
   const [sets, setSets] = useState(sets_raw)
 
   function loadSetView(id) {
     if (selectedSet === id) {
-      setSelectedSet(0);
+      setSelectedSet(null);
       console.log("no specified set");
     } else {
       setSelectedSet(id);
@@ -44,7 +45,7 @@ function App() {
 
   function loadMixView(id) {
     if (selectedMix === id) {
-      setSelectedMix(0);
+      setSelectedMix(null);
       console.log("no specified mix");
     } else {
       setSelectedMix(id);
@@ -110,6 +111,36 @@ function App() {
     
     setSets(setsCopy)
   }
+
+  const addMixToSet = (setId, mixId) => {
+    setSets(sets => {
+      return sets.map(set => {
+        if (set.id === setId) {
+          return {
+            ...set,
+            mixIds: [...set.mixIds, mixId]
+          };
+        } else {
+          return set;
+        }
+      });
+    });
+  };
+
+  const addAudioFileToMix = (mixId, audioFileId) => {
+    setMixes(mixes => {
+      return mixes.map(mix => {
+        if (mix.id === mixId) {
+          return {
+            ...mix,
+            audioFileIds: [...mix.audioFileIds, audioFileId]
+          };
+        } else {
+          return mix;
+        }
+      });
+    });
+  };
   
   function deleteSet(setId){
     // console.log("attempting to delete set", setId)
@@ -134,7 +165,7 @@ function App() {
             <div className="left-box">
             <h2>Sets</h2>
               <div className="content">
-                <SetCardBox sets={sets} loadSetView={loadSetView} addSetPopup={() => addSetPopup(true)} editSet={editSet} deleteSet={deleteSet} />
+                <SetCardBox sets={sets} loadSetView={loadSetView} addSetPopup={() => addSetPopup(true)} editSet={editSet} deleteSet={deleteSet} selectedSet={selectedSet} addMixToSet={addMixToSet} setSets={setSets} />
               </div>
     
 
@@ -147,7 +178,7 @@ function App() {
                   <div className="container-fluid right-box-top p-0">
                     <h2>Mixes { selectedSet ? " - " + setSelected.title : null}</h2>
                     <div className="content">
-                      <MixCardBox mixes={mixesToShow} loadMixView={loadMixView} addMixPopup={() => addMixPopup(true)}/>
+                      <MixCardBox mixes={mixesToShow} loadMixView={loadMixView} addMixPopup={() => addMixPopup(true)} addAudioFileToMix={addAudioFileToMix} setMixes={setMixes} selectedMix={selectedMix}/>
                     </div>
                   </div>
                  </div>

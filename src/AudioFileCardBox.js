@@ -4,12 +4,14 @@ import React from 'react';
 import AudioFileCard from './AudioFileCard';
 import './AudioFileCardBox.scss';
 
-const AudioFileCardBox = ({ audios, addAudioPopup, editAudio, deleteAudio }) => {
+const AudioFileCardBox = ({ audios, addAudioPopup, editAudio, deleteAudio}) => {
+  
+
   return (
     <div className="audio-file-card-box">
       <div className='container-fluid'>
       {audios.map(audio => (   
-                  <AudioFileCard audioFile={audio} editAudio={editAudio} deleteAudio={deleteAudio} key={audio.title + audio.id} /> 
+                  <AudioFileCard audioFile={audio} editAudio={editAudio} deleteAudio={deleteAudio} key={audio.title + audio.id}/> 
       ))}
       
       </div>

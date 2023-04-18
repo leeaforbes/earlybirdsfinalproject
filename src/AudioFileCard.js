@@ -9,7 +9,7 @@ import { ReactComponent as UploadIcon } from "./data/images/folder-upload.svg";
 import waveform from './data/images/waveform.png';
 import pause from './data/images/pause.png';
 
-const AudioFileCard = ({ audioFile, editAudio, deleteAudio }) => {
+const AudioFileCard = ({ audioFile, editAudio, deleteAudio}) => {
 
 	const editFields = {
 		titleField: useRef(null),
@@ -30,10 +30,18 @@ const AudioFileCard = ({ audioFile, editAudio, deleteAudio }) => {
 		setIsEditMode(!isEditMode);
 	}
 
+  function handleDragStart(e) {
+    e.dataTransfer.setData('audioFileId', audioFile.id);
+    console.log("dragging audio file %d", audioFile.id);
+  }
+
   return (
       <div className='row'>
         <div className='col'>
-          <div className='audio-file-card'>
+          <div className='audio-file-card'
+           draggable="true"
+           onDragStart={(e) => handleDragStart(e, audioFile.id)}
+          >
             <div className='container'>
               <div className='row'>
                 <div className='col-2'>

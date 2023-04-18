@@ -4,13 +4,14 @@ import React from 'react';
 import MixCard from './mixCard';
 import './MixCardBox.scss';
 
-const MixCardBox = ({ mixes, loadMixView, addMixPopup }) => {
+const MixCardBox = ({ mixes, loadMixView, addMixPopup, addAudioFileToMix, setMixes, selectedMix}) => {
+
   return (
     <div className="container-fluid mix-card-box">
       {mixes.map(mix => (
         <div className="row" key={mix.title + mix.id}>
           <div className="col">
-            <MixCard mix={mix} loadMixView={loadMixView} />
+            <MixCard mix={mix} loadMixView={loadMixView} addAudioFileToMix={addAudioFileToMix} setMixes={setMixes} selectedMix={selectedMix}/>
           </div>
         </div>
       ))}
